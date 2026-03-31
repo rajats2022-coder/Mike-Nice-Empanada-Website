@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frozen Empanadas — Mike Nice Empanadas</title>
+  <meta name="description" content="Take home Mike Nice frozen empanadas. Heat & eat the thickest handcrafted Puerto Rican fusion empanadas in the Triangle anytime. Available in classic, premium & dessert flavors. Knightdale, NC.">
+  <meta name="keywords" content="frozen empanadas Raleigh NC, take home empanadas Triangle NC, Mike Nice frozen empanadas, heat and eat empanadas, Puerto Rican frozen food, frozen Latin food Raleigh">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://mikeniceempanadas.com/frozen-empanadas.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Frozen Empanadas — Mike Nice Empanadas">
+  <meta property="og:description" content="Take home the thickest empanadas in the Triangle. Heat & eat handcrafted Puerto Rican fusion empanadas anytime.">
+  <meta property="og:url" content="https://mikeniceempanadas.com/frozen-empanadas.html">
+  <meta property="og:site_name" content="Mike Nice Empanadas">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://mikeniceempanadas.com/photos/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Frozen Empanadas — Mike Nice Empanadas">
+  <meta name="twitter:description" content="Take home the thickest empanadas in the Triangle. Heat & eat handcrafted Puerto Rican fusion empanadas anytime.">
+  <meta name="twitter:image" content="https://mikeniceempanadas.com/photos/og-image.jpg">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#C8102E',
+            'primary-light': '#FF3B55',
+            gold: '#F4A724',
+            dark: '#1C0A00',
+            cream: '#FFF8E1',
+          },
+          fontFamily: {
+            oswald: ['Oswald', 'sans-serif'],
+            pacifico: ['Pacifico', 'cursive'],
+            inter: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: #1C0A00; background: #FFF8E1; overflow-x: hidden; }
+
+    .ribbon { display: inline-block; background: #C8102E; color: white; font-family: 'Oswald', sans-serif; font-weight: 700; letter-spacing: 0.18em; font-size: 0.7rem; padding: 5px 22px; text-transform: uppercase; clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%); }
+
+    .btn-red { display: inline-block; background: #C8102E; color: white; font-family: 'Oswald', sans-serif; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 15px 36px; border-radius: 4px; border: none; cursor: pointer; transition: background 0.2s, box-shadow 0.2s, transform 0.15s; text-decoration: none; }
+    .btn-red:hover { background: #FF3B55; box-shadow: 0 0 32px rgba(200,16,46,0.45); transform: translateY(-2px); }
+
+    .btn-gold { display: inline-block; background: #F4A724; color: #1C0A00; font-family: 'Oswald', sans-serif; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 15px 36px; border-radius: 4px; border: none; cursor: pointer; transition: background 0.2s, box-shadow 0.2s, transform 0.15s; text-decoration: none; }
+    .btn-gold:hover { background: #FFB740; box-shadow: 0 0 32px rgba(244,167,36,0.4); transform: translateY(-2px); }
+
+    .btn-outline-dark { display: inline-block; background: transparent; color: #1C0A00; font-family: 'Oswald', sans-serif; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 13px 36px; border-radius: 4px; border: 2px solid #1C0A00; cursor: pointer; transition: background 0.2s, color 0.2s, transform 0.15s; text-decoration: none; }
+    .btn-outline-dark:hover { background: #1C0A00; color: #FFF8E1; transform: translateY(-2px); }
+
+    .nav-link { font-family: 'Oswald', sans-serif; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.875rem; color: #FFF8E1; transition: color 0.2s; padding: 4px 0; position: relative; text-decoration: none; }
+    .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: #F4A724; transition: width 0.25s; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link:hover { color: #F4A724; }
+
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-menu { position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(-8px); min-width: 210px; background: rgba(28,10,0,0.97); border: 1px solid rgba(244,167,36,0.22); border-radius: 8px; padding: 8px 0; opacity: 0; visibility: hidden; transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s; z-index: 200; }
+    .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+    .nav-dropdown-menu a { display: block; padding: 11px 20px; font-family: 'Oswald', sans-serif; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,248,225,0.65); text-decoration: none; transition: color 0.15s, background 0.15s; white-space: nowrap; }
+    .nav-dropdown-menu a:hover { color: #F4A724; background: rgba(244,167,36,0.08); }
+    .nav-dropdown-menu a:not(:last-child) { border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .drop-arrow { display: inline-block; margin-left: 4px; font-size: 0.55rem; vertical-align: middle; transition: transform 0.2s; }
+    .nav-dropdown:hover .drop-arrow { transform: rotate(180deg); }
+
+    #mobile-menu { max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.3s ease; }
+    #mobile-menu.open { max-height: 600px; opacity: 1; }
+
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    .product-card { background: white; border-radius: 14px; overflow: hidden; border: 1px solid rgba(28,10,0,0.06); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .product-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(200,16,46,0.15); }
+    .product-img { background: #1C0A00; height: 220px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .product-img-icon { font-size: 4rem; opacity: 0.6; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .product-card:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     NAVBAR
+═══════════════════════════════════════════ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50" style="background: rgba(28,10,0,0.96); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex items-center justify-between h-16">
+
+      <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
+        <span class="font-pacifico text-cream text-xl" style="color: #FFF8E1;">Mike Nice</span>
+        <span class="font-oswald font-bold text-primary text-xs tracking-widest uppercase" style="color: #C8102E; letter-spacing: 0.2em;">Empanadas</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-7">
+        <a href="index.html#menu" class="nav-link">Menu</a>
+        <div class="nav-dropdown">
+          <a href="index.html#catering" class="nav-link" style="display:inline-flex;align-items:center;">Catering <span class="drop-arrow">&#9660;</span></a>
+          <div class="nav-dropdown-menu">
+            <a href="index.html#catering">Catering Packages</a>
+            <a href="catering-menu.html">Full Catering Menu</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <span class="nav-link" style="display:inline-flex;align-items:center;cursor:pointer;">Shop <span class="drop-arrow">&#9660;</span></span>
+          <div class="nav-dropdown-menu">
+            <a href="frozen-empanadas.html" style="color:#F4A724;">Frozen Empanadas</a>
+            <a href="merch.html">Merch</a>
+          </div>
+        </div>
+        <a href="index.html#find-us" class="nav-link">Find Us</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="tel:9842722728" class="hidden sm:flex items-center gap-2 font-oswald font-semibold tracking-wider uppercase text-sm text-white px-4 py-2 rounded transition-colors" style="background: #C8102E; letter-spacing: 0.1em; font-size: 0.8rem;">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+          (984) 272-2728
+        </a>
+        <button id="mob-toggle" class="md:hidden p-2" style="color: #FFF8E1;" aria-label="Toggle menu">
+          <svg id="ico-menu" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg id="ico-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu">
+      <div class="border-t py-4 flex flex-col gap-1" style="border-color: rgba(255,255,255,0.08);">
+        <a href="index.html#menu" class="nav-link block py-3 px-2" onclick="closeMob()">Menu</a>
+        <a href="index.html#catering" class="nav-link block py-3 px-2" onclick="closeMob()">Catering Packages</a>
+        <a href="catering-menu.html" class="nav-link block py-3 px-2" onclick="closeMob()" style="padding-left:1.25rem;font-size:0.8rem;color:#F4A724;">&#8627; Full Catering Menu</a>
+        <div class="py-1 px-2">
+          <span class="font-oswald font-bold text-xs tracking-widest uppercase" style="color: rgba(255,248,225,0.3); letter-spacing: 0.15em;">Shop</span>
+        </div>
+        <a href="frozen-empanadas.html" class="nav-link block py-3 px-2" onclick="closeMob()" style="padding-left:1.25rem;font-size:0.8rem;color:#F4A724;">&#10052; Frozen Empanadas</a>
+        <a href="merch.html" class="nav-link block py-3 px-2" onclick="closeMob()" style="padding-left:1.25rem;font-size:0.8rem;">&#128085; Merch</a>
+        <a href="index.html#find-us" class="nav-link block py-3 px-2" onclick="closeMob()">Find Us</a>
+        <a href="gallery.html" class="nav-link block py-3 px-2" onclick="closeMob()">Gallery</a>
+        <a href="index.html#contact" class="nav-link block py-3 px-2" onclick="closeMob()">Contact</a>
+        <a href="tel:9842722728" class="btn-red mt-3 text-center block">Call (984) 272-2728</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════
+     HERO BANNER
+═══════════════════════════════════════════ -->
+<section class="pt-24 pb-16 sm:pt-32 sm:pb-20 text-center" style="background: #1C0A00;">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6">
+    <span class="ribbon mb-6">Now Available</span>
+    <h1 class="font-oswald font-bold text-4xl sm:text-5xl lg:text-6xl tracking-wide uppercase mt-4 mb-4" style="color: #FFF8E1; letter-spacing: 0.08em;">
+      Frozen Empanadas
+    </h1>
+    <p class="font-pacifico text-xl sm:text-2xl mb-4" style="color: #F4A724;">Take the Thickness Home</p>
+    <p class="font-inter text-sm sm:text-base max-w-xl mx-auto" style="color: rgba(255,248,225,0.55); line-height: 1.8;">
+      Same handcrafted Puerto Rican fusion empanadas you love from the truck — flash-frozen and ready to heat at home. Stock your freezer with the thickest empanadas in the Triangle.
+    </p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     HOW IT WORKS
+═══════════════════════════════════════════ -->
+<section class="py-14 sm:py-20">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-12 reveal">
+      <span class="ribbon mb-4">Simple as 1-2-3</span>
+      <h2 class="font-oswald font-bold text-2xl sm:text-3xl tracking-widest uppercase mt-4" style="letter-spacing: 0.12em;">How It Works</h2>
+    </div>
+    <div class="grid sm:grid-cols-3 gap-6 reveal">
+      <div class="text-center p-6 rounded-xl" style="background: white; border: 1px solid rgba(28,10,0,0.06);">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center text-2xl" style="background: rgba(244,167,36,0.12);">1</div>
+        <h3 class="font-oswald font-bold text-lg uppercase tracking-wide mb-2">Order</h3>
+        <p class="font-inter text-sm" style="color: rgba(28,10,0,0.55);">Pick your flavors and quantity. Call or message us to place your order.</p>
+      </div>
+      <div class="text-center p-6 rounded-xl" style="background: white; border: 1px solid rgba(28,10,0,0.06);">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center text-2xl" style="background: rgba(200,16,46,0.1);">2</div>
+        <h3 class="font-oswald font-bold text-lg uppercase tracking-wide mb-2">Pick Up</h3>
+        <p class="font-inter text-sm" style="color: rgba(28,10,0,0.55);">Grab your frozen packs from our Knightdale location or at the truck.</p>
+      </div>
+      <div class="text-center p-6 rounded-xl" style="background: white; border: 1px solid rgba(28,10,0,0.06);">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center text-2xl" style="background: rgba(244,167,36,0.12);">3</div>
+        <h3 class="font-oswald font-bold text-lg uppercase tracking-wide mb-2">Heat & Eat</h3>
+        <p class="font-inter text-sm" style="color: rgba(28,10,0,0.55);">Air fry, oven bake, or pan fry. Ready in minutes. Thick every time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FROZEN PACKS
+═══════════════════════════════════════════ -->
+<section class="pb-14 sm:pb-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-12 reveal">
+      <div class="flex items-center gap-4 justify-center mb-2">
+        <div class="h-px w-12 sm:w-20" style="background: rgba(28,10,0,0.12);"></div>
+        <h2 class="font-oswald font-bold text-2xl sm:text-3xl tracking-widest uppercase" style="letter-spacing: 0.12em;">Choose Your Pack</h2>
+        <div class="h-px w-12 sm:w-20" style="background: rgba(28,10,0,0.12);"></div>
+      </div>
+      <p class="font-inter text-sm mt-2" style="color: rgba(28,10,0,0.45);">All packs come flash-frozen with heating instructions included</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Pack 1 -->
+      <div class="product-card reveal">
+        <div class="product-img">
+          <div class="text-center">
+            <div class="product-img-icon">&#129388;</div>
+            <span class="font-oswald text-xs tracking-widest uppercase mt-2 block" style="color: rgba(255,248,225,0.4);">6 Pack</span>
+          </div>
+          <div class="absolute top-3 left-3"><span class="badge badge-classic">Classic</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="font-oswald font-bold text-lg uppercase tracking-wide mb-1">The Starter</h3>
+          <p class="font-inter text-xs mb-3" style="color: rgba(28,10,0,0.45);">6 Classic Empanadas &mdash; pick up to 2 flavors</p>
+          <div class="flex items-center justify-between">
+            <span class="font-oswald font-bold text-2xl" style="color: #C8102E;">$18</span>
+            <span class="font-inter text-xs" style="color: rgba(28,10,0,0.35);">$3.00 each</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pack 2 -->
+      <div class="product-card reveal">
+        <div class="product-img" style="background: linear-gradient(135deg, #1C0A00 0%, #3a1a08 100%);">
+          <div class="text-center">
+            <div class="product-img-icon">&#129388;</div>
+            <span class="font-oswald text-xs tracking-widest uppercase mt-2 block" style="color: rgba(255,248,225,0.4);">12 Pack</span>
+          </div>
+          <div class="absolute top-3 left-3"><span class="badge badge-premium">Most Popular</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="font-oswald font-bold text-lg uppercase tracking-wide mb-1">The Dozen</h3>
+          <p class="font-inter text-xs mb-3" style="color: rgba(28,10,0,0.45);">12 Mixed Empanadas &mdash; pick up to 4 flavors</p>
+          <div class="flex items-center justify-between">
+            <span class="font-oswald font-bold text-2xl" style="color: #C8102E;">$32</span>
+            <span class="font-inter text-xs" style="color: rgba(28,10,0,0.35);">$2.67 each</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pack 3 -->
+      <div class="product-card reveal">
+        <div class="product-img" style="background: linear-gradient(135deg, #C8102E 0%, #8a0b1f 100%);">
+          <div class="text-center">
+            <div class="product-img-icon">&#129388;</div>
+            <span class="font-oswald text-xs tracking-widest uppercase mt-2 block" style="color: rgba(255,255,255,0.5);">24 Pack</span>
+          </div>
+          <div class="absolute top-3 left-3"><span class="badge" style="background: #F4A724; color: #1C0A00;">Best Value</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="font-oswald font-bold text-lg uppercase tracking-wide mb-1">The Party Pack</h3>
+          <p class="font-inter text-xs mb-3" style="color: rgba(28,10,0,0.45);">24 Mixed Empanadas &mdash; pick up to 6 flavors</p>
+          <div class="flex items-center justify-between">
+            <span class="font-oswald font-bold text-2xl" style="color: #C8102E;">$55</span>
+            <span class="font-inter text-xs" style="color: rgba(28,10,0,0.35);">$2.29 each</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pack 4 -->
+      <div class="product-card reveal">
+        <div class="product-img">
+          <div class="text-center">
+            <div class="product-img-icon">&#127846;</div>
+            <span class="font-oswald text-xs tracking-widest uppercase mt-2 block" style="color: rgba(255,248,225,0.4);">6 Pack</span>
+          </div>
+          <div class="absolute top-3 left-3"><span class="badge" style="background: #1C0A00; color: #F4A724;">Dessert</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="font-oswald font-bold text-lg uppercase tracking-wide mb-1">The Sweet Spot</h3>
+          <p class="font-inter text-xs mb-3" style="color: rgba(28,10,0,0.45);">6 Dessert Empanadas &mdash; Apple Pie, Blueberry, or Strawberry Cheesecake</p>
+          <div class="flex items-center justify-between">
+            <span class="font-oswald font-bold text-2xl" style="color: #C8102E;">$22</span>
+            <span class="font-inter text-xs" style="color: rgba(28,10,0,0.35);">$3.67 each</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pack 5 -->
+      <div class="product-card reveal">
+        <div class="product-img" style="background: linear-gradient(135deg, #1C0A00 0%, #3a1a08 100%);">
+          <div class="text-center">
+            <div class="product-img-icon">&#129388;&#127846;</div>
+            <span class="font-oswald text-xs tracking-widest uppercase mt-2 block" style="color: rgba(255,248,225,0.4);">18 Pack</span>
+          </div>
+          <div class="absolute top-3 left-3"><span class="badge badge-premium">Premium Mix</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="font-oswald font-bold text-lg uppercase tracking-wide mb-1">The Full Spread</h3>
+          <p class="font-inter text-xs mb-3" style="color: rgba(28,10,0,0.45);">12 Savory + 6 Dessert Empanadas &mdash; the ultimate freezer restock</p>
+          <div class="flex items-center justify-between">
+            <span class="font-oswald font-bold text-2xl" style="color: #C8102E;">$48</span>
+            <span class="font-inter text-xs" style="color: rgba(28,10,0,0.35);">$2.67 each</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sauce Add-On -->
+      <div class="product-card reveal">
+        <div class="product-img" style="background: linear-gradient(135deg, #F4A724 0%, #e0901a 100%);">
+          <div class="text-center">
+            <div class="product-img-icon" style="opacity: 0.8;">&#127798;</div>
+            <span class="font-oswald text-xs tracking-widest uppercase mt-2 block" style="color: rgba(28,10,0,0.5);">Add-On</span>
+          </div>
+        </div>
+        <div class="p-5">
+          <h3 class="font-oswald font-bold text-lg uppercase tracking-wide mb-1">Sauce Pack</h3>
+          <p class="font-inter text-xs mb-3" style="color: rgba(28,10,0,0.45);">3 sauces (8oz each) &mdash; Aji, Creamy Cilantro, Chimichurri</p>
+          <div class="flex items-center justify-between">
+            <span class="font-oswald font-bold text-2xl" style="color: #C8102E;">$20</span>
+            <span class="font-inter text-xs" style="color: rgba(28,10,0,0.35);">Add to any pack</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     CTA
+═══════════════════════════════════════════ -->
+<section class="py-14 sm:py-20" style="background: #1C0A00;">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center reveal">
+    <p class="font-pacifico text-xl sm:text-2xl mb-3" style="color: #F4A724;">Ready to Stock Up?</p>
+    <h2 class="font-oswald font-bold text-2xl sm:text-3xl tracking-widest uppercase mb-4" style="color: #FFF8E1; letter-spacing: 0.12em;">Order Your Frozen Packs Today</h2>
+    <p class="font-inter text-sm mb-8" style="color: rgba(255,248,225,0.45);">Call or text to place your order. Pickup available in Knightdale or at the truck.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="tel:9842722728" class="btn-red">Call (984) 272-2728</a>
+      <a href="index.html#contact" class="btn-gold">Send a Message</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer style="background: #1C0A00;" class="pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="grid md:grid-cols-3 gap-10 pb-12" style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+      <div>
+        <div class="mb-4">
+          <span class="font-pacifico text-2xl" style="color: #FFF8E1;">Mike Nice</span>
+          <span class="font-oswald font-bold text-xs tracking-widest uppercase ml-2" style="color: #C8102E; letter-spacing: 0.2em;">Empanadas</span>
+        </div>
+        <p class="font-inter text-sm mb-6" style="color: rgba(255,248,225,0.45); line-height: 1.8;">The First Thickest Empanadas in the Triangle. Handcrafted with love in Knightdale, NC.</p>
+        <div class="flex gap-4">
+          <a href="https://www.instagram.com/mikeniceempanadas/" target="_blank" rel="noopener" aria-label="Instagram" class="transition-colors" style="color: rgba(255,248,225,0.35);">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/p/Mike-Nice-Empanadas-100078394419180/" target="_blank" rel="noopener" aria-label="Facebook" class="transition-colors" style="color: rgba(255,248,225,0.35);">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.yelp.com/biz/mike-nice-empanadas-raleigh" target="_blank" rel="noopener" aria-label="Yelp" class="transition-colors" style="color: rgba(255,248,225,0.35);">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.16 12.73l-4.703 1.14c-.46.112-.734-.437-.43-.773l3.045-3.383a.53.53 0 0 0-.164-.832 9.072 9.072 0 0 0-3.8-1.008.53.53 0 0 0-.543.525v4.552c0 .464-.564.682-.862.332l-2.818-3.276a.53.53 0 0 0-.842.084c-.651 1.14-.97 2.47-.858 3.87a.53.53 0 0 0 .665.467l4.703-1.14c.46-.112.734.437.43.773l-3.045 3.383a.53.53 0 0 0 .164.832c1.13.545 2.38.842 3.8 1.008a.53.53 0 0 0 .543-.525v-4.552c0-.464.564-.682.862-.332l2.818 3.276a.53.53 0 0 0 .842-.084c.651-1.14.97-2.47.858-3.87a.53.53 0 0 0-.665-.467z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-oswald font-bold text-sm tracking-widest uppercase mb-5" style="color: #F4A724; letter-spacing: 0.18em;">Quick Links</h4>
+        <ul class="space-y-2.5">
+          <li><a href="index.html#menu" class="font-inter text-sm transition-colors hover:text-gold" style="color: rgba(255,248,225,0.45);">Menu</a></li>
+          <li><a href="index.html#catering" class="font-inter text-sm transition-colors hover:text-gold" style="color: rgba(255,248,225,0.45);">Catering Packages</a></li>
+          <li><a href="catering-menu.html" class="font-inter text-sm transition-colors hover:text-gold" style="color: rgba(255,248,225,0.45);">Full Catering Menu</a></li>
+          <li><a href="frozen-empanadas.html" class="font-inter text-sm transition-colors hover:text-gold" style="color: rgba(255,248,225,0.45);">Frozen Empanadas</a></li>
+          <li><a href="merch.html" class="font-inter text-sm transition-colors hover:text-gold" style="color: rgba(255,248,225,0.45);">Merch</a></li>
+          <li><a href="gallery.html" class="font-inter text-sm transition-colors hover:text-gold" style="color: rgba(255,248,225,0.45);">Gallery</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-oswald font-bold text-sm tracking-widest uppercase mb-5" style="color: #F4A724; letter-spacing: 0.18em;">Contact</h4>
+        <ul class="space-y-3">
+          <li>
+            <a href="tel:9842722728" class="flex items-center gap-2 font-inter text-sm transition-colors" style="color: rgba(255,248,225,0.45);">
+              <svg class="w-4 h-4 flex-shrink-0" style="color: #C8102E;" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+              (984) 272-2728
+            </a>
+          </li>
+          <li class="font-inter text-sm" style="color: rgba(255,248,225,0.45);">Knightdale, NC 27545</li>
+          <li class="font-inter text-sm" style="color: rgba(255,248,225,0.45);">Serving: Raleigh &middot; Durham &middot; Cary &middot; Clayton &middot; Triangle</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="font-inter text-xs text-center sm:text-left" style="color: rgba(255,248,225,0.25);">
+        &copy; 2026 Mike Nice Empanadas. All rights reserved. | Knightdale, NC
+      </p>
+      <p class="font-pacifico text-sm" style="color: #C8102E;">"What's in your Pocket?"</p>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  const mobToggle = document.getElementById('mob-toggle');
+  const mobMenu   = document.getElementById('mobile-menu');
+  const icoMenu   = document.getElementById('ico-menu');
+  const icoClose  = document.getElementById('ico-close');
+  let mobOpen = false;
+
+  mobToggle.addEventListener('click', () => {
+    mobOpen = !mobOpen;
+    mobMenu.classList.toggle('open', mobOpen);
+    icoMenu.classList.toggle('hidden', mobOpen);
+    icoClose.classList.toggle('hidden', !mobOpen);
+  });
+
+  function closeMob() {
+    mobOpen = false;
+    mobMenu.classList.remove('open');
+    icoMenu.classList.remove('hidden');
+    icoClose.classList.add('hidden');
+  }
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => io.observe(el));
+
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 60) {
+      nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.4)';
+    } else {
+      nav.style.boxShadow = 'none';
+    }
+  }, { passive: true });
+</script>
+
+<!-- JSON-LD: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mikeniceempanadas.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Frozen Empanadas", "item": "https://mikeniceempanadas.com/frozen-empanadas.html" }
+  ]
+}
+</script>
+
+<!-- JSON-LD: Product (Frozen Empanadas) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Mike Nice Frozen Empanadas",
+  "description": "Take-home frozen handcrafted Puerto Rican fusion empanadas from Mike Nice Empanadas. Heat and eat the thickest empanadas in the Triangle anytime. Available in classic, premium, and dessert varieties.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Mike Nice Empanadas"
+  },
+  "category": "Frozen Food",
+  "url": "https://mikeniceempanadas.com/frozen-empanadas.html",
+  "image": "https://mikeniceempanadas.com/photos/og-image.jpg"
+}
+</script>
+
+</body>
+</html>

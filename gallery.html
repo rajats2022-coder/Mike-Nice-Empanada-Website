@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery — Mike Nice Empanadas</title>
+  <meta name="description" content="Photo gallery from Mike Nice Empanadas. See our food truck, handcrafted empanadas, catering spreads, and event photos from across Raleigh, Durham, Cary & the Triangle, NC.">
+  <meta name="keywords" content="Mike Nice Empanadas photos, food truck gallery Raleigh, empanada photos, catering event photos Triangle NC, Puerto Rican food truck images">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://mikeniceempanadas.com/gallery.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Gallery — Mike Nice Empanadas">
+  <meta property="og:description" content="Food truck, empanadas, catering spreads, and event photos from Mike Nice Empanadas across the Triangle, NC.">
+  <meta property="og:url" content="https://mikeniceempanadas.com/gallery.html">
+  <meta property="og:site_name" content="Mike Nice Empanadas">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://mikeniceempanadas.com/photos/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gallery — Mike Nice Empanadas">
+  <meta name="twitter:description" content="Food truck, empanadas, catering spreads, and event photos from Mike Nice Empanadas across the Triangle, NC.">
+  <meta name="twitter:image" content="https://mikeniceempanadas.com/photos/og-image.jpg">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#C8102E',
+            'primary-light': '#FF3B55',
+            gold: '#F4A724',
+            dark: '#1C0A00',
+            cream: '#FFF8E1',
+          },
+          fontFamily: {
+            oswald: ['Oswald', 'sans-serif'],
+            pacifico: ['Pacifico', 'cursive'],
+            inter: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: #1C0A00; background: #1C0A00; overflow-x: hidden; }
+
+    .ribbon { display: inline-block; background: #C8102E; color: white; font-family: 'Oswald', sans-serif; font-weight: 700; letter-spacing: 0.18em; font-size: 0.7rem; padding: 5px 22px; text-transform: uppercase; clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%); }
+
+    .btn-red { display: inline-block; background: #C8102E; color: white; font-family: 'Oswald', sans-serif; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 15px 36px; border-radius: 4px; border: none; cursor: pointer; transition: background 0.2s, box-shadow 0.2s, transform 0.15s; text-decoration: none; }
+    .btn-red:hover { background: #FF3B55; box-shadow: 0 0 32px rgba(200,16,46,0.45); transform: translateY(-2px); }
+
+    .btn-gold { display: inline-block; background: #F4A724; color: #1C0A00; font-family: 'Oswald', sans-serif; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 15px 36px; border-radius: 4px; border: none; cursor: pointer; transition: background 0.2s, box-shadow 0.2s, transform 0.15s; text-decoration: none; }
+    .btn-gold:hover { background: #FFB740; box-shadow: 0 0 32px rgba(244,167,36,0.4); transform: translateY(-2px); }
+
+    .btn-outline { display: inline-block; background: transparent; color: #FFF8E1; font-family: 'Oswald', sans-serif; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 13px 36px; border-radius: 4px; border: 2px solid rgba(255,248,225,0.3); cursor: pointer; transition: all 0.2s; text-decoration: none; }
+    .btn-outline:hover { border-color: #F4A724; color: #F4A724; transform: translateY(-2px); }
+
+    .nav-link { font-family: 'Oswald', sans-serif; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.875rem; color: #FFF8E1; transition: color 0.2s; padding: 4px 0; position: relative; text-decoration: none; }
+    .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: #F4A724; transition: width 0.25s; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link:hover { color: #F4A724; }
+
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-menu { position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(-8px); min-width: 210px; background: rgba(28,10,0,0.97); border: 1px solid rgba(244,167,36,0.22); border-radius: 8px; padding: 8px 0; opacity: 0; visibility: hidden; transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s; z-index: 200; }
+    .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+    .nav-dropdown-menu a { display: block; padding: 11px 20px; font-family: 'Oswald', sans-serif; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,248,225,0.65); text-decoration: none; transition: color 0.15s, background 0.15s; white-space: nowrap; }
+    .nav-dropdown-menu a:hover { color: #F4A724; background: rgba(244,167,36,0.08); }
+    .nav-dropdown-menu a:not(:last-child) { border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .drop-arrow { display: inline-block; margin-left: 4px; font-size: 0.55rem; vertical-align: middle; transition: transform 0.2s; }
+    .nav-dropdown:hover .drop-arrow { transform: rotate(180deg); }
+
+    #mobile-menu { max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.3s ease; }
+    #mobile-menu.open { max-height: 600px; opacity: 1; }
+
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .gallery-col { animation: none !important; }
+    }
+
+    /* ── Filmstrip columns ── */
+    .filmstrip-container { display: flex; gap: 16px; overflow: hidden; height: 600px; }
+    @media (min-width: 768px) { .filmstrip-container { height: 700px; } }
+
+    .gallery-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .gallery-col-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      animation: filmstripUp 25s linear infinite;
+    }
+    .gallery-col:nth-child(2) .gallery-col-inner { animation: filmstripDown 30s linear infinite; }
+    .gallery-col:nth-child(3) .gallery-col-inner { animation-duration: 22s; }
+    .gallery-col:nth-child(4) .gallery-col-inner { animation: filmstripDown 28s linear infinite; }
+
+    .filmstrip-container:hover .gallery-col-inner { animation-play-state: paused; }
+
+    @keyframes filmstripUp {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-50%); }
+    }
+    @keyframes filmstripDown {
+      0% { transform: translateY(-50%); }
+      100% { transform: translateY(0); }
+    }
+
+    .film-img {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .film-img img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .film-img:hover img { transform: scale(1.08); }
+    .film-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 60%, rgba(28,10,0,0.4) 100%);
+      border-radius: 12px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .film-img:hover::after { opacity: 1; }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 999;
+      background: rgba(0,0,0,0.92);
+      backdrop-filter: blur(20px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+    .lightbox.active { opacity: 1; pointer-events: all; }
+    .lightbox img {
+      max-width: 90vw; max-height: 85vh;
+      border-radius: 14px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+      transform: scale(0.9);
+      transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .lightbox.active img { transform: scale(1); }
+    .lightbox-close {
+      position: absolute; top: 24px; right: 28px;
+      font-size: 2.5rem; color: white; cursor: pointer;
+      transition: color 0.2s, transform 0.2s;
+      background: none; border: none; line-height: 1;
+    }
+    .lightbox-close:hover { color: #F4A724; transform: rotate(90deg); }
+
+    /* Glow accents */
+    .glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     NAVBAR
+═══════════════════════════════════════════ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50" style="background: rgba(28,10,0,0.96); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex items-center justify-between h-16">
+
+      <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
+        <span class="font-pacifico text-cream text-xl" style="color: #FFF8E1;">Mike Nice</span>
+        <span class="font-oswald font-bold text-primary text-xs tracking-widest uppercase" style="color: #C8102E; letter-spacing: 0.2em;">Empanadas</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-7">
+        <a href="index.html#menu" class="nav-link">Menu</a>
+        <div class="nav-dropdown">
+          <a href="index.html#catering" class="nav-link" style="display:inline-flex;align-items:center;">Catering <span class="drop-arrow">&#9660;</span></a>
+          <div class="nav-dropdown-menu">
+            <a href="index.html#catering">Catering Packages</a>
+            <a href="catering-menu.html">Full Catering Menu</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <span class="nav-link" style="display:inline-flex;align-items:center;cursor:pointer;">Shop <span class="drop-arrow">&#9660;</span></span>
+          <div class="nav-dropdown-menu">
+            <a href="frozen-empanadas.html">Frozen Empanadas</a>
+            <a href="merch.html">Merch</a>
+          </div>
+        </div>
+        <a href="index.html#find-us" class="nav-link">Find Us</a>
+        <a href="gallery.html" class="nav-link" style="color:#F4A724;">Gallery</a>
+        <a href="index.html#socials" class="nav-link">Socials</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="tel:9842722728" class="hidden sm:flex items-center gap-2 font-oswald font-semibold tracking-wider uppercase text-sm text-white px-4 py-2 rounded transition-colors" style="background: #C8102E; letter-spacing: 0.1em; font-size: 0.8rem;">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+          (984) 272-2728
+        </a>
+        <button id="mob-toggle" class="md:hidden p-2" style="color: #FFF8E1;" aria-label="Toggle menu">
+          <svg id="ico-menu" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg id="ico-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu">
+      <div class="border-t py-4 flex flex-col gap-1" style="border-color: rgba(255,255,255,0.08);">
+        <a href="index.html#menu" class="nav-link block py-3 px-2" onclick="closeMob()">Menu</a>
+        <a href="index.html#catering" class="nav-link block py-3 px-2" onclick="closeMob()">Catering Packages</a>
+        <a href="catering-menu.html" class="nav-link block py-3 px-2" onclick="closeMob()" style="padding-left:1.25rem;font-size:0.8rem;color:#F4A724;">&#8627; Full Catering Menu</a>
+        <div class="py-1 px-2">
+          <span class="font-oswald font-bold text-xs tracking-widest uppercase" style="color: rgba(255,248,225,0.3); letter-spacing: 0.15em;">Shop</span>
+        </div>
+        <a href="frozen-empanadas.html" class="nav-link block py-3 px-2" onclick="closeMob()" style="padding-left:1.25rem;font-size:0.8rem;">&#10052; Frozen Empanadas</a>
+        <a href="merch.html" class="nav-link block py-3 px-2" onclick="closeMob()" style="padding-left:1.25rem;font-size:0.8rem;">&#128085; Merch</a>
+        <a href="index.html#find-us" class="nav-link block py-3 px-2" onclick="closeMob()">Find Us</a>
+        <a href="gallery.html" class="nav-link block py-3 px-2" onclick="closeMob()" style="color:#F4A724;">Gallery</a>
+        <a href="index.html#socials" class="nav-link block py-3 px-2" onclick="closeMob()">Socials</a>
+        <a href="index.html#contact" class="nav-link block py-3 px-2" onclick="closeMob()">Contact</a>
+        <a href="tel:9842722728" class="btn-red mt-3 text-center block">Call (984) 272-2728</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="h-16"></div>
+
+<!-- ═══════════════════════════════════════════
+     BREADCRUMB
+═══════════════════════════════════════════ -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 pt-6 pb-2">
+  <div class="flex items-center gap-2 font-inter text-sm" style="color: rgba(255,248,225,0.35);">
+    <a href="index.html" class="hover:underline" style="color: rgba(255,248,225,0.55);">Home</a>
+    <span>&rsaquo;</span>
+    <span style="color: #F4A724;">Gallery</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     HERO — Gallery
+═══════════════════════════════════════════ -->
+<section class="relative py-16 sm:py-24 overflow-hidden">
+  <!-- Background glow orbs -->
+  <div class="glow-orb" style="width: 400px; height: 400px; background: rgba(200,16,46,0.12); top: -100px; left: -100px;"></div>
+  <div class="glow-orb" style="width: 500px; height: 500px; background: rgba(244,167,36,0.08); bottom: -150px; right: -120px;"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+
+    <div class="text-center mb-14 reveal">
+      <span class="ribbon mb-4 inline-block">Gallery</span>
+      <h1 class="font-oswald font-bold text-white leading-tight" style="font-size: clamp(2.5rem, 6vw, 4.5rem);">
+        The <span style="color: #F4A724;">Proof</span> Is in the <span style="color: #C8102E;">Pocket</span>
+      </h1>
+      <p class="font-inter mt-4 max-w-lg mx-auto" style="color: rgba(255,248,225,0.45); line-height: 1.7;">
+        From the truck to the table — every empanada tells a story. Click any photo to view full size.
+      </p>
+    </div>
+
+    <!-- ── FILMSTRIP COLUMNS ── -->
+    <div class="filmstrip-container reveal">
+
+      <!-- Column 1 — scrolls up -->
+      <div class="gallery-col">
+        <div class="gallery-col-inner">
+          <div class="film-img" onclick="openLightbox(this)"><img src="photos/mike%20truck.jpeg" alt="Mike Nice Empanadas Food Truck"></div>
+          <div class="film-img" onclick="openLightbox(this)"><img src="photos/catering-menu-2.png" alt="Catering food spread"></div>
+          <div class="film-img" onclick="openLightbox(this)"><img src="photos/Mike%20Nice%20Empanadas%20%7C%20Knightdale%20NC%202.jpeg" alt="Mike Nice Empanadas"></div>
+          <!-- duplicate for loop -->
+          <div class="film-img" onclick="openLightbox(this)"><img src="photos/mike%20truck.jpeg" alt="Mike Nice Empanadas Food Truck"></div>
+          <div class="film-img" onclick="openLightbox(this)"><img src="photos/catering-menu-2.png" alt="Catering food spread"></div>
+          <div class="film-img" onclick="openLightbox(this)"><img src="photos/Mike%20Nice%20Empanadas%20%7C%20Knightdale%20NC%202.jpeg" alt="Mike Nice Empanadas"></div>
+        </div>
+      </div>
+
+      <!-- Column 2 — scrolls down -->
+      <div class="gallery-col">
+        <div class="gallery-col-inner">
+          <div class="film-img" onclick="openLightbox(this)"><img src="photos/MIKE%20NICE%20EMPANADAS%20-%20Updated%20March%20....jpeg" alt="Fresh empanadas in basket"></div>
+          <div class="film-img" onclick="openLightbox(this)"><img src="photos/Mike%20Nice%20Empanadas%20added%20a%20new%20....jpeg" alt="Catering setup"></div>
+          <div class="film-img" onclick="openLightbox(this)"><img src="photos/truck-exterior-instagram.png" alt="Truck exterior"></div>
+          <!-- duplicate for loop -->
+          <div class="film-img" onclick="openLightbox(this)"><img src="photos/MIKE%20NICE%20EMPANADAS%20-%20Updated%20March%20....jpeg" alt="Fresh empanadas in basket"></div>
+          <div class="film-img" onclick="openLightbox(this)"><img src="photos/Mike%20Nice%20Empanadas%20added%20a%20new%20....jpeg" alt="Catering setup"></div>
+          <div class="film-img" onclick="openLightbox(this)"><img src="photos/truck-exterior-instagram.png" alt="Truck exterior"></div>
+        </div>
+      </div>
+
+      <!-- Column 3 — scrolls up (faster) -->
+      <div class="gallery-col hidden md:block">
+        <div class="gallery-col-inner">
+          <div class="film-img" onclick="openLightbox(this)"><img src="photos/Mike%20Nice%20Empanadas%20rolling%20in%20at%201PM%20....jpeg" alt="Empanada with drink"></div>
+          <div class="film-img" onclick="openLightbox(this)"><img src="photos/Mike-Nice-Empanadas%20Food%20Truck%20-%20Moblz.png" alt="Food truck Moblz"></div>
+          <div class="film-img" onclick="openLightbox(this)"><img src="photos/catering-menu-1.png" alt="Catering menu"></div>
+          <!-- duplicate for loop -->
+          <div class="film-img" onclick="openLightbox(this)"><img src="photos/Mike%20Nice%20Empanadas%20rolling%20in%20at%201PM%20....jpeg" alt="Empanada with drink"></div>
+          <div class="film-img" onclick="openLightbox(this)"><img src="photos/Mike-Nice-Empanadas%20Food%20Truck%20-%20Moblz.png" alt="Food truck Moblz"></div>
+          <div class="film-img" onclick="openLightbox(this)"><img src="photos/catering-menu-1.png" alt="Catering menu"></div>
+        </div>
+      </div>
+
+      <!-- Column 4 — scrolls down (hidden on small) -->
+      <div class="gallery-col hidden lg:block">
+        <div class="gallery-col-inner">
+          <div class="film-img" onclick="openLightbox(this)"><img src="photos/Mike%20Nice%20Empanadas%20%7C%20Knightdale%20NC.jpeg" alt="Mike Nice Empanadas Logo" style="object-fit: contain; background: #2E1100; padding: 16px;"></div>
+          <div class="film-img" onclick="openLightbox(this)"><img src="photos/weekly-schedule-reference.jpg" alt="Weekly schedule"></div>
+          <div class="film-img" onclick="openLightbox(this)"><img src="photos/mike%20truck.jpeg" alt="Mike Nice Food Truck"></div>
+          <!-- duplicate for loop -->
+          <div class="film-img" onclick="openLightbox(this)"><img src="photos/Mike%20Nice%20Empanadas%20%7C%20Knightdale%20NC.jpeg" alt="Mike Nice Empanadas Logo" style="object-fit: contain; background: #2E1100; padding: 16px;"></div>
+          <div class="film-img" onclick="openLightbox(this)"><img src="photos/weekly-schedule-reference.jpg" alt="Weekly schedule"></div>
+          <div class="film-img" onclick="openLightbox(this)"><img src="photos/mike%20truck.jpeg" alt="Mike Nice Food Truck"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-16 reveal">
+      <p class="font-inter text-sm mb-6" style="color: rgba(255,248,225,0.4);">Want us at your event? We bring the heat.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="tel:9842722728" class="btn-red">Call (984) 272-2728</a>
+        <a href="index.html#contact" class="btn-gold">Book Catering</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     LIGHTBOX
+═══════════════════════════════════════════ -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" aria-label="Close">&times;</button>
+  <img id="lightbox-img" src="" alt="Gallery full view">
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer style="background: #1C0A00; border-top: 1px solid rgba(255,255,255,0.06);" class="pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="grid md:grid-cols-3 gap-10 pb-12" style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+
+      <div>
+        <div class="mb-4">
+          <span class="font-pacifico text-2xl" style="color: #FFF8E1;">Mike Nice</span>
+          <span class="font-oswald font-bold text-xs tracking-widest uppercase ml-2" style="color: #C8102E; letter-spacing: 0.2em;">Empanadas</span>
+        </div>
+        <p class="font-inter text-sm mb-6" style="color: rgba(255,248,225,0.45); line-height: 1.8;">The First Thickest Empanadas in the Triangle. Handcrafted with love in Knightdale, NC.</p>
+        <div class="flex gap-4">
+          <a href="https://www.instagram.com/mikeniceempanadas/" target="_blank" rel="noopener" aria-label="Instagram" class="transition-colors" style="color: rgba(255,248,225,0.35);">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/p/Mike-Nice-Empanadas-100078394419180/" target="_blank" rel="noopener" aria-label="Facebook" class="transition-colors" style="color: rgba(255,248,225,0.35);">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.yelp.com/biz/mike-nice-empanadas-raleigh" target="_blank" rel="noopener" aria-label="Yelp" class="transition-colors" style="color: rgba(255,248,225,0.35);">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.16 12.73l-4.703 1.14c-.46.112-.734-.437-.43-.773l3.045-3.383a.53.53 0 0 0-.164-.832 9.072 9.072 0 0 0-3.8-1.008.53.53 0 0 0-.543.525v4.552c0 .464-.564.682-.862.332l-2.818-3.276a.53.53 0 0 0-.842.084c-.651 1.14-.97 2.47-.858 3.87a.53.53 0 0 0 .665.467l4.703-1.14c.46-.112.734.437.43.773l-3.045 3.383a.53.53 0 0 0 .164.832c1.13.545 2.38.842 3.8 1.008a.53.53 0 0 0 .543-.525v-4.552c0-.464.564-.682.862-.332l2.818 3.276a.53.53 0 0 0 .842-.084c.651-1.14.97-2.47.858-3.87a.53.53 0 0 0-.665-.467z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="font-oswald font-bold text-sm tracking-widest uppercase mb-5" style="color: #F4A724; letter-spacing: 0.18em;">Quick Links</h4>
+        <ul class="space-y-2.5">
+          <li><a href="index.html#menu" class="font-inter text-sm transition-colors hover:text-gold" style="color: rgba(255,248,225,0.45);">Menu</a></li>
+          <li><a href="index.html#catering" class="font-inter text-sm transition-colors hover:text-gold" style="color: rgba(255,248,225,0.45);">Catering Packages</a></li>
+          <li><a href="catering-menu.html" class="font-inter text-sm transition-colors hover:text-gold" style="color: rgba(255,248,225,0.45);">Full Catering Menu</a></li>
+          <li><a href="index.html#find-us" class="font-inter text-sm transition-colors hover:text-gold" style="color: rgba(255,248,225,0.45);">Find the Truck</a></li>
+          <li><a href="gallery.html" class="font-inter text-sm transition-colors hover:text-gold" style="color: #F4A724;">Gallery</a></li>
+          <li><a href="index.html#contact" class="font-inter text-sm transition-colors hover:text-gold" style="color: rgba(255,248,225,0.45);">Book Catering</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-oswald font-bold text-sm tracking-widest uppercase mb-5" style="color: #F4A724; letter-spacing: 0.18em;">Contact</h4>
+        <ul class="space-y-3">
+          <li>
+            <a href="tel:9842722728" class="flex items-center gap-2 font-inter text-sm transition-colors" style="color: rgba(255,248,225,0.45);">
+              <svg class="w-4 h-4 flex-shrink-0" style="color: #C8102E;" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+              (984) 272-2728
+            </a>
+          </li>
+          <li class="font-inter text-sm" style="color: rgba(255,248,225,0.45);">Knightdale, NC 27545</li>
+          <li class="font-inter text-sm" style="color: rgba(255,248,225,0.45);">Serving: Raleigh &middot; Durham &middot; Cary &middot; Clayton &middot; Triangle</li>
+          <li>
+            <a href="https://www.yelp.com/biz/mike-nice-empanadas-raleigh" target="_blank" rel="noopener" class="font-inter text-sm" style="color: rgba(255,248,225,0.45);">&#9733; 4.8 on Yelp</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="font-inter text-xs text-center sm:text-left" style="color: rgba(255,248,225,0.25);">
+        &copy; 2026 Mike Nice Empanadas. All rights reserved. | Knightdale, NC
+      </p>
+      <p class="font-pacifico text-sm" style="color: #C8102E;">"What's in your Pocket?"</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  const mobToggle = document.getElementById('mob-toggle');
+  const mobMenu = document.getElementById('mobile-menu');
+  const icoMenu = document.getElementById('ico-menu');
+  const icoClose = document.getElementById('ico-close');
+  mobToggle.addEventListener('click', () => {
+    mobMenu.classList.toggle('open');
+    icoMenu.classList.toggle('hidden');
+    icoClose.classList.toggle('hidden');
+  });
+  function closeMob() {
+    mobMenu.classList.remove('open');
+    icoMenu.classList.remove('hidden');
+    icoClose.classList.add('hidden');
+  }
+
+  // Reveal on scroll
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Lightbox
+  function openLightbox(el) {
+    const src = el.querySelector('img').src;
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+
+<!-- JSON-LD: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mikeniceempanadas.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Gallery", "item": "https://mikeniceempanadas.com/gallery.html" }
+  ]
+}
+</script>
+
+<!-- JSON-LD: ImageGallery -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ImageGallery",
+  "name": "Mike Nice Empanadas Photo Gallery",
+  "description": "Photos of Mike Nice Empanadas food truck, handcrafted empanadas, catering events, and community gatherings across the Triangle, NC.",
+  "url": "https://mikeniceempanadas.com/gallery.html",
+  "about": {
+    "@type": "FoodEstablishment",
+    "name": "Mike Nice Empanadas",
+    "url": "https://mikeniceempanadas.com/"
+  }
+}
+</script>
+
+</body>
+</html>
