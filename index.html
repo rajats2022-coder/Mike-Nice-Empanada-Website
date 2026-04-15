@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#1C0A00">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Mike Nice Empanadas — The Thickest Empanadas in the Triangle</title>
   <meta name="description" content="Mike Nice Empanadas — The first thickest empanadas in the Triangle. Handcrafted Puerto Rican fusion empanadas served from our food truck across Raleigh, Durham, Cary & the Triangle, NC. Catering available for weddings, corporate events & parties.">
   <meta name="keywords" content="empanadas Raleigh NC, food truck Triangle NC, Puerto Rican food Raleigh, empanada catering Durham, best empanadas Cary, Mike Nice Empanadas, food truck catering NC, birria empanadas, Latin fusion food truck, empanadas near me, Knightdale food truck, empanada delivery Triangle">
@@ -62,7 +64,7 @@
   </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; background: #1C0A00; }
     body { font-family: 'Inter', sans-serif; color: #1C0A00; background: #FFF8E1; overflow-x: hidden; }
 
     /* Marquee */
@@ -253,6 +255,15 @@
     .chat-nudge.show { opacity: 1; transform: translateY(0); pointer-events: all; }
     .chat-nudge-close { position: absolute; top: 6px; right: 8px; background: none; border: none; color: rgba(28,10,0,0.3); cursor: pointer; font-size: 14px; padding: 2px 4px; }
 
+    /* Mobile hero CTAs — tighter, uniform width, no overlap with floating CTA */
+    @media (max-width: 639px) {
+      .hero-cta-group .btn-red,
+      .hero-cta-group .btn-outline { padding: 13px 24px; font-size: 0.82rem; width: 100%; text-align: center; letter-spacing: 0.1em; }
+      .hero-cta-track { display: inline-flex !important; align-items: center; justify-content: center; }
+      /* Floating Track CTA conflicts with hero buttons on mobile — hide it since Track is now an inline CTA */
+      .float-cta { display: none !important; }
+    }
+
     @media (max-width: 480px) {
       #mn-chat-window { right: 0; bottom: 0; width: 100vw; max-width: 100vw; height: 100vh; max-height: 100vh; border-radius: 0; }
       #mn-chat-toggle { bottom: 16px; right: 16px; width: 56px; height: 56px; }
@@ -399,9 +410,12 @@
     </p>
 
     <!-- CTAs -->
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="#catering" class="btn-red">Book Catering</a>
-      <a href="#menu" class="btn-outline">View the Menu</a>
+    <div class="hero-cta-group flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center max-w-xs sm:max-w-none mx-auto">
+      <a href="#catering" class="btn-red hero-cta">Book Catering</a>
+      <a href="https://streetfoodfinder.com/MikeNiceEmpanadas" target="_blank" rel="noopener" class="btn-red hero-cta hero-cta-track sm:hidden">
+        <span class="live-dot" style="display:inline-block;margin-right:8px;vertical-align:middle;"></span>Track the Truck
+      </a>
+      <a href="#menu" class="btn-outline hero-cta">View the Menu</a>
     </div>
   </div>
 
