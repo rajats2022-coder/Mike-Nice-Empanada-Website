@@ -258,16 +258,22 @@
     /* Mobile hero CTAs — tighter, uniform width, no overlap with floating CTA */
     @media (max-width: 639px) {
       .hero-cta-group .btn-red,
-      .hero-cta-group .btn-outline { padding: 13px 24px; font-size: 0.82rem; width: 100%; text-align: center; letter-spacing: 0.1em; }
+      .hero-cta-group .btn-outline { padding: 12px 22px; font-size: 0.78rem; width: 100%; text-align: center; letter-spacing: 0.09em; }
       .hero-cta-track { display: inline-flex !important; align-items: center; justify-content: center; }
       /* Floating Track CTA conflicts with hero buttons on mobile — hide it since Track is now an inline CTA */
       .float-cta { display: none !important; }
+      /* Proactive chat nudge obstructs content on small screens — disable on mobile */
+      .chat-nudge { display: none !important; }
+    }
+
+    @media (max-width: 639px) {
+      #mn-chat-toggle { bottom: 14px; right: 14px; width: 50px; height: 50px; animation: none; box-shadow: 0 4px 18px rgba(200,16,46,0.4); }
+      #mn-chat-toggle svg { width: 22px; height: 22px; }
+      #mn-chat-toggle .chat-badge { width: 16px; height: 16px; font-size: 9px; top: -1px; right: -1px; border-width: 1.5px; }
     }
 
     @media (max-width: 480px) {
       #mn-chat-window { right: 0; bottom: 0; width: 100vw; max-width: 100vw; height: 100vh; max-height: 100vh; border-radius: 0; }
-      #mn-chat-toggle { bottom: 16px; right: 16px; width: 56px; height: 56px; }
-      #mn-chat-toggle svg { width: 24px; height: 24px; }
       .float-cta { bottom: 16px; left: 12px; font-size: 0.68rem; padding: 10px 14px; gap: 6px; letter-spacing: 0.06em; }
       .chat-nudge { right: 16px; bottom: 82px; max-width: 220px; font-size: 0.8rem; }
       .chat-header { padding: 16px; }
@@ -381,31 +387,31 @@
   <div class="absolute inset-0 z-10" style="background: linear-gradient(to bottom, rgba(28,10,0,0.5) 0%, transparent 25%, transparent 70%, rgba(28,10,0,0.85) 100%);"></div>
 
   <!-- Content -->
-  <div class="relative z-20 text-center px-4 sm:px-6 max-w-5xl mx-auto pt-20">
+  <div class="hero-content relative z-20 text-center px-4 sm:px-6 max-w-5xl mx-auto pt-20 sm:pt-20 pb-24 sm:pb-0">
 
     <!-- Logo badge -->
-    <div class="mb-7 flex justify-center">
+    <div class="mb-5 sm:mb-7 flex justify-center">
       <img src="photos/Mike%20Nice%20Empanadas%20%7C%20Knightdale%20NC.jpeg"
            alt="Mike Nice Empanadas Logo"
-           class="w-36 sm:w-48 rounded-full"
+           class="w-28 sm:w-48 rounded-full"
            style="box-shadow: 0 0 0 4px rgba(244,167,36,0.4), 0 0 60px rgba(200,16,46,0.5);">
     </div>
 
     <!-- Tagline pill -->
-    <div class="mb-5">
+    <div class="mb-4 sm:mb-5">
       <span class="ribbon">What's in your Pocket?</span>
     </div>
 
     <!-- Headline -->
-    <h1 class="font-oswald font-bold text-white leading-none mb-5"
-        style="font-size: clamp(2.8rem, 9vw, 6.5rem); letter-spacing: -0.01em; text-shadow: 0 4px 40px rgba(0,0,0,0.6);">
+    <h1 class="font-oswald font-bold text-white leading-none mb-4 sm:mb-5"
+        style="font-size: clamp(2.4rem, 9vw, 6.5rem); letter-spacing: -0.01em; text-shadow: 0 4px 40px rgba(0,0,0,0.6);">
       THE THICKEST<br>
       <span style="color: #F4A724;">EMPANADAS</span><br>
       IN THE TRIANGLE
     </h1>
 
     <!-- Sub -->
-    <p class="font-inter text-white mb-10 max-w-lg mx-auto" style="font-size: 1.1rem; line-height: 1.75; opacity: 0.8;">
+    <p class="font-inter text-white mb-6 sm:mb-10 max-w-lg mx-auto" style="font-size: 1rem; line-height: 1.65; opacity: 0.8;">
       Handcrafted with love. Found on the streets of Raleigh.
     </p>
 
