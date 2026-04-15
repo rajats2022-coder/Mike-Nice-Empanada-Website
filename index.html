@@ -68,7 +68,8 @@
     body { font-family: 'Inter', sans-serif; color: #1C0A00; background: #FFF8E1; overflow-x: hidden; }
 
     /* Marquee */
-    .marquee-track { display: flex; animation: marquee 8s linear infinite; white-space: nowrap; }
+    .marquee-track { display: flex; animation: marquee 8s linear infinite; white-space: nowrap; will-change: transform; }
+    .marquee-item { flex-shrink: 0; display: inline-block; }
     @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
     /* Hero video */
@@ -441,12 +442,7 @@
 ═══════════════════════════════════════════ -->
 <div class="overflow-hidden py-3" style="background: #C8102E;">
   <div class="marquee-track">
-    <span class="font-oswald font-bold text-white tracking-widest uppercase text-sm px-6" style="letter-spacing: 0.2em;">
-      WHAT'S IN YOUR POCKET? &nbsp;&#9733;&nbsp; HANDCRAFTED DAILY &nbsp;&#9733;&nbsp; BEST IN THE TRIANGLE &nbsp;&#9733;&nbsp; CATERING AVAILABLE &nbsp;&#9733;&nbsp; FIRST THICKEST EMPANADAS &nbsp;&#9733;&nbsp; ROLLING THROUGH RALEIGH &nbsp;&#9733;&nbsp; BOOK YOUR EVENT &nbsp;&#9733;&nbsp;
-    </span>
-    <span class="font-oswald font-bold text-white tracking-widest uppercase text-sm px-6" aria-hidden="true" style="letter-spacing: 0.2em;">
-      WHAT'S IN YOUR POCKET? &nbsp;&#9733;&nbsp; HANDCRAFTED DAILY &nbsp;&#9733;&nbsp; BEST IN THE TRIANGLE &nbsp;&#9733;&nbsp; CATERING AVAILABLE &nbsp;&#9733;&nbsp; FIRST THICKEST EMPANADAS &nbsp;&#9733;&nbsp; ROLLING THROUGH RALEIGH &nbsp;&#9733;&nbsp; BOOK YOUR EVENT &nbsp;&#9733;&nbsp;
-    </span>
+    <span class="marquee-item font-oswald font-bold text-white tracking-widest uppercase text-sm" style="letter-spacing: 0.2em;">WHAT'S IN YOUR POCKET?&nbsp;&#9733;&nbsp;HANDCRAFTED DAILY&nbsp;&#9733;&nbsp;BEST IN THE TRIANGLE&nbsp;&#9733;&nbsp;CATERING AVAILABLE&nbsp;&#9733;&nbsp;FIRST THICKEST EMPANADAS&nbsp;&#9733;&nbsp;ROLLING THROUGH RALEIGH&nbsp;&#9733;&nbsp;BOOK YOUR EVENT&nbsp;&#9733;&nbsp;</span><span class="marquee-item font-oswald font-bold text-white tracking-widest uppercase text-sm" aria-hidden="true" style="letter-spacing: 0.2em;">WHAT'S IN YOUR POCKET?&nbsp;&#9733;&nbsp;HANDCRAFTED DAILY&nbsp;&#9733;&nbsp;BEST IN THE TRIANGLE&nbsp;&#9733;&nbsp;CATERING AVAILABLE&nbsp;&#9733;&nbsp;FIRST THICKEST EMPANADAS&nbsp;&#9733;&nbsp;ROLLING THROUGH RALEIGH&nbsp;&#9733;&nbsp;BOOK YOUR EVENT&nbsp;&#9733;&nbsp;</span>
   </div>
 </div>
 
