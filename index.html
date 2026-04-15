@@ -70,10 +70,10 @@
     @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
     /* Hero video */
-    .hero-video { filter: grayscale(100%) brightness(0.32) contrast(1.1); }
+    .hero-video { filter: grayscale(100%) brightness(0.55) contrast(1.05); }
 
     /* Overlay */
-    .hero-overlay { background: radial-gradient(ellipse at center, rgba(28,10,0,0.25) 0%, rgba(28,10,0,0.65) 100%); }
+    .hero-overlay { background: radial-gradient(ellipse at center, rgba(28,10,0,0.15) 0%, rgba(28,10,0,0.5) 100%); }
 
     /* Ribbon label */
     .ribbon { display: inline-block; background: #C8102E; color: white; font-family: 'Oswald', sans-serif; font-weight: 700; letter-spacing: 0.18em; font-size: 0.7rem; padding: 5px 22px; text-transform: uppercase; clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%); }
@@ -193,7 +193,7 @@
 
     /* Chat header */
     .chat-header { background: linear-gradient(135deg, #1C0A00 0%, #2A1108 100%); padding: 20px; display: flex; align-items: center; gap: 14px; border-bottom: 1px solid rgba(244,167,36,0.15); position: relative; overflow: hidden; }
-    .chat-header::before { content: ''; position: absolute; top: -50%; right: -20%; width: 140px; height: 140px; border-radius: 50%; background: radial-gradient(circle, rgba(200,16,46,0.12) 0%, transparent 70%); }
+    .chat-header::before { content: ''; position: absolute; top: -50%; right: -20%; width: 140px; height: 140px; border-radius: 50%; background: radial-gradient(circle, rgba(200,16,46,0.12) 0%, transparent 70%); pointer-events: none; }
     .chat-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #C8102E, #F4A724); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 22px; box-shadow: 0 4px 16px rgba(200,16,46,0.35); }
     .chat-header-info { flex: 1; }
     .chat-header-name { font-family: 'Pacifico', cursive; color: #FFF8E1; font-size: 1.05rem; line-height: 1.2; }
@@ -403,22 +403,11 @@
       <a href="#catering" class="btn-red">Book Catering</a>
       <a href="#menu" class="btn-outline">View the Menu</a>
     </div>
-    <!-- Track CTA -->
-    <div class="mt-5 flex justify-center">
-      <a href="https://streetfoodfinder.com/MikeNiceEmpanadas" target="_blank" rel="noopener"
-         class="inline-flex items-center gap-2 font-oswald font-semibold text-sm uppercase tracking-wider transition-colors"
-         style="color: rgba(255,248,225,0.65); text-decoration: none; letter-spacing: 0.12em;"
-         onmouseover="this.style.color='#F4A724'" onmouseout="this.style.color='rgba(255,248,225,0.65)'">
-        <span class="live-dot"></span>
-        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
-        Find the Truck Now
-      </a>
-    </div>
   </div>
 
   <!-- Scroll chevron -->
-  <div class="absolute bottom-8 left-0 right-0 z-20 flex justify-center">
-    <a href="#about" style="color: rgba(255,255,255,0.4);" class="hover:text-gold transition-colors animate-bounce">
+  <div class="absolute left-0 right-0 z-20 flex justify-center" style="bottom: 1rem; pointer-events: none;">
+    <a href="#about" style="color: rgba(255,255,255,0.4); pointer-events: auto;" class="hover:text-gold transition-colors animate-bounce">
       <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
       </svg>
