@@ -74,6 +74,8 @@
 
     /* Hero video */
     .hero-video { filter: none; }
+    .hero-video-bg { display: none; }
+    .hero-video-main { z-index: 1; }
 
     /* Overlay */
     .hero-overlay { background: transparent; }
@@ -106,8 +108,9 @@
     .hero-cta-group .btn-outline:hover { background: #F4A724; color: #1C0A00; }
     @media (max-width: 639px) {
       #hero { min-height: calc(100svh + 84px); align-items: flex-end; background: #1C0A00; }
-      #hero::before { content: ''; position: absolute; inset: 0; z-index: 9; pointer-events: none; background: linear-gradient(90deg, rgba(28,10,0,0.58) 0%, rgba(28,10,0,0.08) 22%, rgba(28,10,0,0.04) 72%, rgba(28,10,0,0.62) 100%), linear-gradient(180deg, rgba(28,10,0,0.12) 0%, transparent 34%, rgba(28,10,0,0.22) 100%); }
-      .hero-video { object-fit: cover; object-position: center 50%; background: #1C0A00; transform: none; transform-origin: center center; }
+      #hero::before { content: ''; position: absolute; inset: 0; z-index: 9; pointer-events: none; background: linear-gradient(90deg, rgba(28,10,0,0.54) 0%, rgba(28,10,0,0.06) 22%, rgba(28,10,0,0.04) 72%, rgba(28,10,0,0.58) 100%), linear-gradient(180deg, rgba(28,10,0,0.16) 0%, transparent 30%, rgba(28,10,0,0.28) 100%); }
+      .hero-video-bg { display: block; object-fit: cover; object-position: center center; filter: blur(18px) brightness(0.52) saturate(1.2); transform: scale(1.16); }
+      .hero-video-main { inset: auto !important; top: 76px !important; left: 50% !important; width: auto !important; height: min(58svh, 560px) !important; min-width: 100%; object-fit: contain; object-position: center center; background: transparent; transform: translateX(-50%); transform-origin: center center; }
       .hero-brand-card { left: 14px; right: 14px; bottom: calc(76px + env(safe-area-inset-bottom)); max-width: none; padding: 10px 12px 12px; border-radius: 18px; backdrop-filter: blur(14px) saturate(1.35); -webkit-backdrop-filter: blur(14px) saturate(1.35); }
       .hero-brand-card::before { border-radius: 17px; opacity: 0.58; }
       .hero-brand-row { gap: 8px; margin-bottom: 6px; }
@@ -404,7 +407,10 @@
 <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
 
   <!-- Video -->
-  <video class="hero-video absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline>
+  <video class="hero-video hero-video-bg absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline aria-hidden="true">
+    <source src="seedancemikevideo.mp4" type="video/mp4">
+  </video>
+  <video class="hero-video hero-video-main absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline>
     <source src="seedancemikevideo.mp4" type="video/mp4">
   </video>
 
