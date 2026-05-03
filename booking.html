@@ -667,8 +667,43 @@
   // ── Form submit ──
   function handleSubmit(e) {
     e.preventDefault();
+    saveCateringLeadToCrm(e.currentTarget);
     document.getElementById('catering-form').classList.add('hidden');
     document.getElementById('form-success').classList.remove('hidden');
+  }
+
+  function saveCateringLeadToCrm(form) {
+    const data = Object.fromEntries(new FormData(form));
+    const storageKey = 'mikeNiceCommandCenter.v2';
+    const now = new Date();
+    const lead = {
+      id: `lead-${Date.now()}-${Math.random().toString(16).slice(2)}`,
+      section: 'catering',
+      status: 'new',
+      customer: data.name || 'Website catering lead',
+      phone: data.phone || '',
+      email: data.email || '',
+      source: 'Website form',
+      value: Number(data.guests || 0) >= 75 ? 1000 : Number(data.guests || 0) >= 35 ? 650 : 350,
+      nextAction: now.toISOString().slice(0, 10),
+      createdAt: now.toISOString().slice(0, 10),
+      lastContact: '',
+      preferredContact: data.phone ? 'Text' : 'Email',
+      customerType: data.event_type && data.event_type.includes('Corporate') ? 'Corporate buyer' : data.event_type && data.event_type.includes('Wedding') ? 'Event planner' : 'New lead',
+      marketingConsent: 'unknown',
+      tags: ['Website form', data.event_type, data.event_date ? 'Event dated' : '', Number(data.guests || 0) >= 75 ? 'Large event' : ''].filter(Boolean),
+      details: [`Event type: ${data.event_type || 'Not selected'}`, `Event date: ${data.event_date || 'Not provided'}`, `Guests: ${data.guests || 'Not provided'}`, data.message || 'No message provided.'].join('\n'),
+      notes: ['Auto-captured from booking.html catering form.'],
+      metadata: { formName: 'booking.html#catering-form', eventType: data.event_type || '', eventDate: data.event_date || '', guests: data.guests || '' }
+    };
+    try {
+      const saved = JSON.parse(localStorage.getItem(storageKey) || '{}');
+      const next = { schemaVersion: 3, settings: saved.settings || undefined, leads: Array.isArray(saved.leads) ? saved.leads : [] };
+      next.leads.unshift(lead);
+      localStorage.setItem(storageKey, JSON.stringify(next));
+    } catch (error) {
+      console.warn('CRM local capture failed', error);
+    }
   }
 
   // ── FAQ toggle ──
