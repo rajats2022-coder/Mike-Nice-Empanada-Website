@@ -93,11 +93,14 @@
 
     .btn-outline { display: inline-block; background: transparent; color: white; font-family: 'Oswald', sans-serif; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 13px 36px; border-radius: 4px; border: 2px solid #F4A724; cursor: pointer; transition: background 0.2s, color 0.2s, transform 0.15s; text-decoration: none; }
     .btn-outline:hover { background: #F4A724; color: #1C0A00; transform: translateY(-2px); }
-    .hero-brand-card { position: absolute; left: clamp(1rem, 4vw, 4rem); bottom: clamp(4.5rem, 9vh, 7rem); z-index: 20; max-width: 470px; padding: 22px; border-radius: 30px; background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,248,225,0.07) 42%, rgba(244,167,36,0.10)); border: 1px solid rgba(255,255,255,0.42); backdrop-filter: blur(22px) saturate(1.65); -webkit-backdrop-filter: blur(22px) saturate(1.65); box-shadow: inset 0 1px 0 rgba(255,255,255,0.55), inset 0 -1px 0 rgba(255,255,255,0.10), 0 24px 80px rgba(0,0,0,0.22), 0 0 44px rgba(244,167,36,0.10); text-align: left; overflow: hidden; }
+    .hero-brand-card { position: absolute; left: clamp(1rem, 4vw, 4rem); bottom: clamp(4.5rem, 9vh, 7rem); z-index: 20; max-width: 560px; padding: 22px; border-radius: 30px; background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,248,225,0.07) 42%, rgba(244,167,36,0.10)); border: 1px solid rgba(255,255,255,0.42); backdrop-filter: blur(22px) saturate(1.65); -webkit-backdrop-filter: blur(22px) saturate(1.65); box-shadow: inset 0 1px 0 rgba(255,255,255,0.55), inset 0 -1px 0 rgba(255,255,255,0.10), 0 24px 80px rgba(0,0,0,0.22), 0 0 44px rgba(244,167,36,0.10); text-align: left; overflow: hidden; }
     .hero-brand-card::before { content: ''; position: absolute; inset: 1px; border-radius: 29px; pointer-events: none; background: radial-gradient(circle at 18% 0%, rgba(255,255,255,0.42), transparent 28%), linear-gradient(115deg, rgba(255,255,255,0.18), transparent 35%, rgba(255,255,255,0.10) 68%, transparent); opacity: 0.9; }
     .hero-brand-card > * { position: relative; z-index: 1; }
     .hero-brand-row { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
     .hero-brand-logo { width: 74px; height: 74px; object-fit: cover; border-radius: 999px; box-shadow: 0 0 0 3px rgba(244,167,36,0.55), 0 0 34px rgba(200,16,46,0.45); flex: 0 0 auto; }
+    .hero-card-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(190px, 0.9fr); gap: 18px; align-items: center; margin-bottom: 12px; }
+    .hero-card-mark { width: 100%; max-width: 260px; height: auto; justify-self: end; filter: drop-shadow(0 12px 20px rgba(0,0,0,0.35)); }
+    .hero-card-copy { min-width: 0; }
     .hero-kicker { font-family: 'Oswald', sans-serif; color: #F4A724; text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.72rem; font-weight: 700; }
     .hero-title { font-family: 'Oswald', sans-serif; color: white; font-weight: 800; text-transform: uppercase; line-height: 0.95; font-size: clamp(2.05rem, 4.6vw, 4.15rem); letter-spacing: -0.02em; text-shadow: 0 4px 26px rgba(0,0,0,0.56); margin: 0 0 10px; }
     .hero-subline { color: rgba(255,248,225,0.86); font-size: 0.98rem; line-height: 1.55; margin: 0 0 18px; max-width: 390px; }
@@ -112,6 +115,8 @@
       .hero-video-bg { display: block; object-fit: cover; object-position: center center; filter: blur(18px) brightness(0.52) saturate(1.2); transform: scale(1.16); }
       .hero-video-main { inset: auto !important; top: 76px !important; left: 50% !important; width: auto !important; height: min(58svh, 560px) !important; min-width: 100%; object-fit: contain; object-position: center center; background: transparent; transform: translateX(-50%); transform-origin: center center; }
       .hero-brand-card { left: 14px; right: 14px; bottom: calc(76px + env(safe-area-inset-bottom)); max-width: none; padding: 10px 12px 12px; border-radius: 18px; backdrop-filter: blur(14px) saturate(1.35); -webkit-backdrop-filter: blur(14px) saturate(1.35); }
+      .hero-card-top { grid-template-columns: minmax(0, 1fr) minmax(142px, 0.9fr); gap: 10px; align-items: center; margin-bottom: 6px; }
+      .hero-card-mark { width: 100%; max-width: 180px; }
       .hero-brand-card::before { border-radius: 17px; opacity: 0.58; }
       .hero-brand-row { gap: 8px; margin-bottom: 6px; }
       .hero-brand-logo { width: 38px; height: 38px; }
@@ -418,29 +423,33 @@
 
   <!-- Content -->
   <div class="hero-brand-card">
-    <div class="hero-brand-row">
-      <img src="photos/Mike%20Nice%20Empanadas%20%7C%20Knightdale%20NC.jpeg" alt="Mike Nice Empanadas Logo" class="hero-brand-logo">
-      <div>
-        <div class="hero-kicker">What's in your Pocket?</div>
-        <div class="font-pacifico text-xl" style="color:#FFF8E1; line-height:1; margin-top:4px;">Mike Nice</div>
-      </div>
-    </div>
+    <div class="hero-card-top">
+      <div class="hero-card-copy">
+        <div class="hero-brand-row">
+          <div>
+            <div class="hero-kicker">What's in your Pocket?</div>
+            <div class="font-pacifico text-xl" style="color:#FFF8E1; line-height:1; margin-top:4px;">Mike Nice</div>
+          </div>
+        </div>
 
-    <h1 class="hero-title">
-      The Thickest<br>
-      <span style="color:#F4A724;">Empanadas</span><br>
-      in the Triangle
-    </h1>
+        <h1 class="hero-title">
+          The Thickest<br>
+          <span style="color:#F4A724;">Empanadas</span><br>
+          in the Triangle
+        </h1>
+      </div>
+      <img src="photos/mike-nice-logo-full-transparent.png" alt="Mike Nice Empanadas Logo" class="hero-card-mark">
+    </div>
 
     <p class="hero-subline">Handcrafted Puerto Rican fusion empanadas rolling through Raleigh, Knightdale, Durham, Cary & the Triangle.</p>
 
     <div class="hero-cta-group flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">
-      <a href="#catering" class="btn-red hero-cta">Book Catering</a>
-      <a href="https://streetfoodfinder.com/MikeNiceEmpanadas" target="_blank" rel="noopener" class="btn-red hero-cta hero-cta-track sm:hidden">
-        <span class="live-dot" style="display:inline-block;margin-right:8px;vertical-align:middle;"></span>Track the Truck
-      </a>
-      <a href="#menu" class="btn-outline hero-cta">View Menu</a>
-    </div>
+        <a href="#catering" class="btn-red hero-cta">Book Catering</a>
+        <a href="https://streetfoodfinder.com/MikeNiceEmpanadas" target="_blank" rel="noopener" class="btn-red hero-cta hero-cta-track sm:hidden">
+          <span class="live-dot" style="display:inline-block;margin-right:8px;vertical-align:middle;"></span>Track the Truck
+        </a>
+        <a href="#menu" class="btn-outline hero-cta">View Menu</a>
+      </div>
   </div>
 
   <!-- Scroll chevron -->
