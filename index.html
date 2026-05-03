@@ -65,7 +65,7 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; background: #1C0A00; }
-    body { font-family: 'Inter', sans-serif; color: #1C0A00; background: #FFF8E1; overflow-x: hidden; }
+    body { font-family: 'Inter', sans-serif; color: #1C0A00; background: #1C0A00; overflow-x: hidden; }
 
     /* Marquee */
     .marquee-track { display: flex; width: max-content; animation: marquee 22s linear infinite; white-space: nowrap; will-change: transform; }
@@ -105,9 +105,9 @@
     .hero-cta-group .btn-outline { background: rgba(255,248,225,0.10); border-color: rgba(244,167,36,0.95); color: #FFF8E1; box-shadow: inset 0 0 0 1px rgba(255,248,225,0.08); }
     .hero-cta-group .btn-outline:hover { background: #F4A724; color: #1C0A00; }
     @media (max-width: 639px) {
-      #hero { min-height: 100svh; align-items: flex-end; }
+      #hero { min-height: calc(100svh + 84px); align-items: flex-end; }
       .hero-video { object-fit: cover; object-position: center center; background: #1C0A00; transform: scale(1.02); transform-origin: center center; }
-      .hero-brand-card { left: 12px; right: 12px; bottom: calc(1rem + env(safe-area-inset-bottom)); max-width: none; padding: 13px 14px 14px; border-radius: 20px; backdrop-filter: blur(16px) saturate(1.45); -webkit-backdrop-filter: blur(16px) saturate(1.45); }
+      .hero-brand-card { left: 12px; right: 12px; bottom: calc(112px + env(safe-area-inset-bottom)); max-width: none; padding: 13px 14px 14px; border-radius: 20px; backdrop-filter: blur(16px) saturate(1.45); -webkit-backdrop-filter: blur(16px) saturate(1.45); }
       .hero-brand-card::before { border-radius: 19px; opacity: 0.65; }
       .hero-brand-row { gap: 10px; margin-bottom: 8px; }
       .hero-brand-logo { width: 46px; height: 46px; }
@@ -329,7 +329,7 @@
 <!-- ═══════════════════════════════════════════
      NAVBAR
 ═══════════════════════════════════════════ -->
-<nav id="navbar" class="fixed top-0 left-0 right-0 z-50" style="background: rgba(28,10,0,0.96); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);">
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50" style="background: rgba(28,10,0,0.96); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); padding-top: env(safe-area-inset-top);">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
     <div class="flex items-center justify-between h-16">
 
@@ -452,7 +452,7 @@
 <!-- ═══════════════════════════════════════════
      MARQUEE STRIP
 ═══════════════════════════════════════════ -->
-<div class="overflow-hidden py-3" style="background: #C8102E;">
+<div class="hero-marquee-strip overflow-hidden py-3" style="background: #C8102E;">
   <div class="marquee-track">
     <span class="marquee-item font-oswald font-bold text-white tracking-widest uppercase text-sm" style="letter-spacing: 0.2em;">WHAT'S IN YOUR POCKET?&nbsp;&#9733;&nbsp;HANDCRAFTED DAILY&nbsp;&#9733;&nbsp;BEST IN THE TRIANGLE&nbsp;&#9733;&nbsp;CATERING AVAILABLE&nbsp;&#9733;&nbsp;FIRST THICKEST EMPANADAS&nbsp;&#9733;&nbsp;ROLLING THROUGH RALEIGH&nbsp;&#9733;&nbsp;BOOK YOUR EVENT&nbsp;&#9733;&nbsp;</span><span class="marquee-item font-oswald font-bold text-white tracking-widest uppercase text-sm" aria-hidden="true" style="letter-spacing: 0.2em;">WHAT'S IN YOUR POCKET?&nbsp;&#9733;&nbsp;HANDCRAFTED DAILY&nbsp;&#9733;&nbsp;BEST IN THE TRIANGLE&nbsp;&#9733;&nbsp;CATERING AVAILABLE&nbsp;&#9733;&nbsp;FIRST THICKEST EMPANADAS&nbsp;&#9733;&nbsp;ROLLING THROUGH RALEIGH&nbsp;&#9733;&nbsp;BOOK YOUR EVENT&nbsp;&#9733;&nbsp;</span>
   </div>
