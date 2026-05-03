@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mikeniceempanadas.com/sitemap.xml
