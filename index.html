@@ -73,10 +73,9 @@
     @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
     /* Hero video */
-    .hero-video { filter: none; }
+    .hero-video { filter: none; pointer-events: none; }
     .hero-video-bg { display: none; }
     .hero-video-main { z-index: 1; }
-    .hero-mobile-poster { display: none; }
 
     /* Overlay */
     .hero-overlay { background: transparent; }
@@ -114,10 +113,8 @@
       #hero { min-height: calc(100svh + 72px); align-items: flex-end; background: #1C0A00; }
       #hero::before { content: ''; position: absolute; inset: 0; z-index: 9; pointer-events: none; background: linear-gradient(90deg, rgba(28,10,0,0.44) 0%, rgba(28,10,0,0.02) 24%, rgba(28,10,0,0.02) 72%, rgba(28,10,0,0.46) 100%); }
       .hero-bottom-shade { display: none; }
-      .hero-video-bg,
-      .hero-video-main { display: none !important; }
-      .hero-mobile-poster { display: block; position: absolute; z-index: 1; inset: auto 0 0 0; top: 76px; height: min(64svh, 620px); overflow: hidden; background: #1C0A00; }
-      .hero-mobile-poster img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transform: scale(1.035); animation: mobileHeroDrift 9s ease-in-out infinite alternate; }
+      .hero-video-bg { display: block; object-fit: cover; object-position: center center; filter: blur(18px) brightness(0.52) saturate(1.2); transform: scale(1.16); }
+      .hero-video-main { inset: auto !important; top: 76px !important; left: 50% !important; width: auto !important; height: min(64svh, 620px) !important; min-width: 100%; object-fit: contain; object-position: center center; background: transparent; transform: translateX(-50%); transform-origin: center center; }
       .hero-brand-card { left: 12px !important; right: auto !important; bottom: calc(120px + env(safe-area-inset-bottom)); transform: none !important; width: calc(100% - 24px) !important; max-width: calc(100% - 24px) !important; box-sizing: border-box; padding: 14px 16px 16px; border-radius: 20px; overflow: hidden; backdrop-filter: blur(16px) saturate(1.42); -webkit-backdrop-filter: blur(16px) saturate(1.42); }
       .hero-card-top { display: block; position: relative; min-height: 0; padding-right: 0; margin-bottom: 8px; }
       .hero-card-mark { display: none; }
@@ -132,10 +129,6 @@
       .hero-cta { min-width: 0; flex: 1 1 0; padding: 10px 10px !important; font-size: 0.62rem !important; letter-spacing: 0.055em !important; white-space: nowrap; }
       .hero-cta-track { display: none !important; }
       #hero .absolute.left-0.right-0.z-20 { display: none; }
-    }
-    @keyframes mobileHeroDrift {
-      from { transform: scale(1.035) translate3d(0, 0, 0); }
-      to { transform: scale(1.07) translate3d(-1.2%, -1.1%, 0); }
     }
 
     .btn-outline-dark { display: inline-block; background: transparent; color: #1C0A00; font-family: 'Oswald', sans-serif; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 13px 36px; border-radius: 4px; border: 2px solid #1C0A00; cursor: pointer; transition: background 0.2s, color 0.2s, transform 0.15s; text-decoration: none; }
@@ -418,15 +411,12 @@
 <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
 
   <!-- Video -->
-  <video class="hero-video hero-video-bg absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline preload="auto" disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback" aria-hidden="true">
+  <video class="hero-video hero-video-bg absolute inset-0 w-full h-full object-cover" autoplay muted defaultmuted loop playsinline preload="auto" disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback" aria-hidden="true">
     <source src="seedancemikevideo.mp4" type="video/mp4">
   </video>
-  <video class="hero-video hero-video-main absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline preload="auto" disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback">
+  <video class="hero-video hero-video-main absolute inset-0 w-full h-full object-cover" autoplay muted defaultmuted loop playsinline preload="auto" disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback">
     <source src="seedancemikevideo.mp4" type="video/mp4">
   </video>
-  <div class="hero-mobile-poster" aria-hidden="true">
-    <img src="photos/mobile-hero-video-fallback.jpg" alt="">
-  </div>
 
   <!-- Gradient overlays -->
   <div class="hero-overlay absolute inset-0 z-10"></div>
@@ -2431,6 +2421,34 @@
     setTimeout(() => window.toggleChat(), 500);
   }
 
+})();
+</script>
+
+<script>
+(function() {
+  const heroVideos = Array.from(document.querySelectorAll('#hero video'));
+  if (!heroVideos.length) return;
+
+  const playHero = () => {
+    heroVideos.forEach(video => {
+      video.muted = true;
+      video.defaultMuted = true;
+      video.playsInline = true;
+      video.setAttribute('muted', '');
+      video.setAttribute('playsinline', '');
+      video.setAttribute('webkit-playsinline', '');
+      video.removeAttribute('controls');
+      const attempt = video.play();
+      if (attempt && typeof attempt.catch === 'function') attempt.catch(() => {});
+    });
+  };
+
+  playHero();
+  window.addEventListener('load', playHero, { passive: true });
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) playHero(); });
+  window.addEventListener('pageshow', playHero, { passive: true });
+  window.addEventListener('scroll', playHero, { passive: true });
+  window.addEventListener('touchstart', playHero, { passive: true });
 })();
 </script>
 
