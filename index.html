@@ -74,6 +74,10 @@
 
     /* Hero video */
     .hero-video { filter: none; pointer-events: none; }
+    .hero-video::-webkit-media-controls,
+    .hero-video::-webkit-media-controls-panel,
+    .hero-video::-webkit-media-controls-play-button,
+    .hero-video::-webkit-media-controls-start-playback-button { display: none !important; -webkit-appearance: none; opacity: 0 !important; }
     .hero-video-bg { display: none; }
     .hero-video-main { z-index: 1; }
 
@@ -411,10 +415,10 @@
 <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
 
   <!-- Video -->
-  <video class="hero-video hero-video-bg absolute inset-0 w-full h-full object-cover" autoplay muted defaultmuted loop playsinline preload="auto" disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback" aria-hidden="true">
+  <video class="hero-video hero-video-bg absolute inset-0 w-full h-full object-cover" autoplay muted defaultmuted loop playsinline webkit-playsinline x-webkit-airplay="deny" preload="auto" disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback" aria-hidden="true">
     <source src="seedancemikevideo.mp4" type="video/mp4">
   </video>
-  <video class="hero-video hero-video-main absolute inset-0 w-full h-full object-cover" autoplay muted defaultmuted loop playsinline preload="auto" disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback">
+  <video class="hero-video hero-video-main absolute inset-0 w-full h-full object-cover" autoplay muted defaultmuted loop playsinline webkit-playsinline x-webkit-airplay="deny" preload="auto" disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback">
     <source src="seedancemikevideo.mp4" type="video/mp4">
   </video>
 
@@ -2429,22 +2433,46 @@
   const heroVideos = Array.from(document.querySelectorAll('#hero video'));
   if (!heroVideos.length) return;
 
+  const primeHeroVideo = video => {
+    video.muted = true;
+    video.defaultMuted = true;
+    video.autoplay = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.controls = false;
+    video.setAttribute('autoplay', '');
+    video.setAttribute('muted', '');
+    video.setAttribute('defaultmuted', '');
+    video.setAttribute('loop', '');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
+    video.setAttribute('x-webkit-airplay', 'deny');
+    video.removeAttribute('controls');
+  };
+
   const playHero = () => {
     heroVideos.forEach(video => {
-      video.muted = true;
-      video.defaultMuted = true;
-      video.playsInline = true;
-      video.setAttribute('muted', '');
-      video.setAttribute('playsinline', '');
-      video.setAttribute('webkit-playsinline', '');
-      video.removeAttribute('controls');
+      primeHeroVideo(video);
+      if (video.readyState < 2) video.load();
       const attempt = video.play();
       if (attempt && typeof attempt.catch === 'function') attempt.catch(() => {});
     });
   };
 
+  heroVideos.forEach(video => {
+    primeHeroVideo(video);
+    video.addEventListener('pause', () => {
+      if (!document.hidden) window.setTimeout(playHero, 80);
+    });
+    video.addEventListener('ended', playHero);
+    video.addEventListener('canplay', playHero, { once: true });
+  });
+
   playHero();
+  const retry = window.setInterval(playHero, 650);
+  window.setTimeout(() => window.clearInterval(retry), 10000);
   window.addEventListener('load', playHero, { passive: true });
+  document.addEventListener('DOMContentLoaded', playHero, { passive: true });
   document.addEventListener('visibilitychange', () => { if (!document.hidden) playHero(); });
   window.addEventListener('pageshow', playHero, { passive: true });
   window.addEventListener('scroll', playHero, { passive: true });
