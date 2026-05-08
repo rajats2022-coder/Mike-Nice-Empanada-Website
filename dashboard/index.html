@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#1c0a00">
   <title>Mike Nice Command Center</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,136 +12,75 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <noscript>This dashboard needs JavaScript enabled.</noscript>
   <div class="app-shell">
     <aside class="sidebar" aria-label="Dashboard navigation">
       <div class="brand-lockup">
         <img src="../photos/mike-nice-logo-clean-transparent.png" alt="Mike Nice Empanadas logo">
-        <div>
-          <span class="script">Mike Nice</span>
-          <strong>Command Center</strong>
-        </div>
+        <div><span class="script">Mike Nice</span><strong>Command Center</strong></div>
       </div>
-
       <nav class="side-nav" id="sideNav">
         <button class="nav-item active" data-view="dashboard" type="button"><span>Overview</span><small>3-panel command</small></button>
         <button class="nav-item" data-view="catering" type="button"><span>Catering Leads</span><small>Events + quotes</small></button>
         <button class="nav-item" data-view="frozen" type="button"><span>Frozen Empanadas</span><small>Orders + pickup</small></button>
         <button class="nav-item" data-view="merch" type="button"><span>Merch</span><small>Gear + fulfillment</small></button>
-        <button class="nav-item" data-view="settings" type="button"><span>Business Setup</span><small>Customize dashboard</small></button>
+        <button class="nav-item" data-view="crm" type="button"><span>CRM</span><small>All contacts + notes</small></button>
+        <button class="nav-item" data-view="connections" type="button"><span>Connections</span><small>Forms + Supabase + API</small></button>
+        <button class="nav-item" data-view="settings" type="button"><span>Business Setup</span><small>Rules + reminders</small></button>
       </nav>
-
-      <div class="sidebar-card">
-        <p class="eyebrow">Today</p>
-        <strong id="todayFocus">Loading...</strong>
-        <span id="todaySubtext">Checking lead activity</span>
-      </div>
+      <div class="sidebar-card"><p class="eyebrow">Today</p><strong id="todayFocus">Loading</strong><span id="todaySubtext">Preparing lead queue.</span></div>
     </aside>
 
     <main class="workspace">
       <header class="topbar">
-        <div>
-          <p class="eyebrow">Private operating dashboard</p>
-          <h1 id="viewTitle">Overview</h1>
-        </div>
+        <div><p class="eyebrow">Private operating dashboard</p><h1 id="viewTitle">Overview</h1></div>
         <div class="top-actions">
-          <button class="ghost-btn" id="resetDemo" type="button">Reset Demo Data</button>
+          <button class="ghost-btn" id="exportData" type="button">Export</button>
+          <button class="ghost-btn" id="importData" type="button">Import</button>
+          <button class="ghost-btn" id="refreshNow" type="button">Refresh</button>
           <button class="primary-btn" id="openLeadModal" type="button">Add Lead</button>
         </div>
       </header>
 
-      <section class="notice-line" aria-label="Lead notification summary">
-        <div class="pulse-dot"></div>
-        <p id="notificationSummary">New lead notifications will appear here.</p>
-      </section>
+      <section class="notice-line"><div class="pulse-dot" id="syncDot"></div><div><p id="notificationSummary">New lead notifications will appear here.</p><span class="sync-status" id="syncStatus">Auto-refresh ready.</span></div></section>
 
       <section class="view active" id="view-dashboard" data-title="Overview">
         <div class="metric-grid" id="metricGrid"></div>
         <div class="panel-grid" id="sectionPanels"></div>
         <div class="two-col">
-          <section class="surface">
-            <div class="section-head">
-              <div>
-                <p class="eyebrow">Notifications</p>
-                <h2>Lead Inbox</h2>
-              </div>
-              <button class="ghost-btn compact" data-filter="all" type="button">View all</button>
-            </div>
-            <div class="notification-list" id="notificationList"></div>
-          </section>
-          <section class="surface">
-            <div class="section-head">
-              <div>
-                <p class="eyebrow">Next actions</p>
-                <h2>Follow-Up Queue</h2>
-              </div>
-            </div>
-            <div class="task-list" id="followUpList"></div>
-          </section>
+          <section class="surface"><div class="section-head"><div><p class="eyebrow">Notifications</p><h2>Lead Inbox</h2></div></div><div class="notification-list" id="notificationList"></div></section>
+          <section class="surface"><div class="section-head"><div><p class="eyebrow">Next actions</p><h2>Follow-Up Queue</h2></div></div><div class="task-list" id="followUpList"></div></section>
         </div>
       </section>
 
-      <section class="view" id="view-catering" data-title="Catering Leads">
-        <div class="section-toolbar">
-          <div>
-            <p class="eyebrow">Catering notifications</p>
-            <h2>Events, quotes, and booked catering</h2>
-          </div>
-          <div class="filter-row" data-section-filter="catering"></div>
-        </div>
-        <div class="lead-board" id="cateringBoard"></div>
+      <section class="view" id="view-catering" data-title="Catering Leads"><div class="section-toolbar"><div><p class="eyebrow">Catering notifications</p><h2>Events, quotes, and booked catering</h2></div><div class="filter-row" data-section-filter="catering"></div></div><div class="lead-board" id="cateringBoard"></div></section>
+      <section class="view" id="view-frozen" data-title="Frozen Empanadas"><div class="section-toolbar"><div><p class="eyebrow">Frozen order pipeline</p><h2>Pickup, delivery, and batch prep</h2></div><div class="filter-row" data-section-filter="frozen"></div></div><div class="lead-board" id="frozenBoard"></div></section>
+      <section class="view" id="view-merch" data-title="Merch"><div class="section-toolbar"><div><p class="eyebrow">Merch pipeline</p><h2>Shirts, hats, aprons, and custom drops</h2></div><div class="filter-row" data-section-filter="merch"></div></div><div class="lead-board" id="merchBoard"></div></section>
+
+      <section class="view" id="view-crm" data-title="CRM">
+        <div class="section-toolbar"><div><p class="eyebrow">Customer memory</p><h2>Everyone who filled out a form, called, DM'd, or ordered</h2></div><div class="crm-tools"><input id="crmSearch" type="search" placeholder="Search name, phone, email, notes"><select id="crmSegment"><option value="all">All segments</option><option value="hot">Hot leads</option><option value="catering">Catering</option><option value="frozen">Frozen</option><option value="merch">Merch</option><option value="marketing">Marketing ok</option><option value="due">Follow-up due</option></select></div></div>
+        <div class="crm-grid" id="crmGrid"></div>
+        <section class="surface crm-table-wrap"><div class="section-head"><div><p class="eyebrow">Contact list</p><h2>CRM Contacts</h2></div><button class="ghost-btn compact" id="copyMarketingList" type="button">Copy Marketing List</button></div><div class="crm-table" id="crmTable"></div></section>
       </section>
 
-      <section class="view" id="view-frozen" data-title="Frozen Empanadas">
-        <div class="section-toolbar">
-          <div>
-            <p class="eyebrow">Frozen order pipeline</p>
-            <h2>Pickup, delivery, and batch prep</h2>
-          </div>
-          <div class="filter-row" data-section-filter="frozen"></div>
-        </div>
-        <div class="lead-board" id="frozenBoard"></div>
-      </section>
-
-      <section class="view" id="view-merch" data-title="Merch">
-        <div class="section-toolbar">
-          <div>
-            <p class="eyebrow">Merch pipeline</p>
-            <h2>Shirts, hats, aprons, and custom drops</h2>
-          </div>
-          <div class="filter-row" data-section-filter="merch"></div>
-        </div>
-        <div class="lead-board" id="merchBoard"></div>
+      <section class="view" id="view-connections" data-title="Connections">
+        <div class="connections-grid" id="connectionsGrid"></div>
+        <section class="surface"><div class="section-head"><div><p class="eyebrow">Integration contract</p><h2>Inbound Lead Format</h2></div><button class="ghost-btn compact" id="copySchema" type="button">Copy Schema</button></div><pre class="code-block" id="schemaBlock"></pre></section>
       </section>
 
       <section class="view" id="view-settings" data-title="Business Setup">
         <div class="settings-grid">
-          <section class="surface">
-            <div class="section-head">
-              <div>
-                <p class="eyebrow">Customize</p>
-                <h2>Business Rules</h2>
-              </div>
-              <button class="primary-btn compact" id="saveSettings" type="button">Save</button>
-            </div>
+          <section class="surface"><div class="section-head"><div><p class="eyebrow">Customize</p><h2>Business Rules</h2></div><button class="primary-btn compact" id="saveSettings" type="button">Save</button></div>
             <form class="settings-form" id="settingsForm">
               <label>Follow-up SLA hours<input name="slaHours" type="number" min="1" step="1"></label>
               <label>Catering minimum guests<input name="minGuests" type="number" min="1" step="1"></label>
               <label>Catering deposit percent<input name="depositPercent" type="number" min="0" max="100" step="1"></label>
-              <label>Frozen pickup days<input name="pickupDays" type="text" placeholder="Fri, Sat, Sun"></label>
+              <label>Frozen pickup days<input name="pickupDays" type="text"></label>
               <label>Primary phone<input name="phone" type="tel"></label>
               <label>Notification email<input name="email" type="email"></label>
             </form>
           </section>
-
-          <section class="surface">
-            <div class="section-head">
-              <div>
-                <p class="eyebrow">Playbook</p>
-                <h2>Mike's Lead Actions</h2>
-              </div>
-            </div>
-            <div class="playbook-list" id="playbookList"></div>
-          </section>
+          <section class="surface"><div class="section-head"><div><p class="eyebrow">Playbook</p><h2>Mike's Lead Actions</h2></div></div><div class="playbook-list" id="playbookList"></div></section>
         </div>
       </section>
     </main>
@@ -148,46 +88,28 @@
 
   <dialog class="lead-modal" id="leadModal">
     <form method="dialog" class="lead-form" id="leadForm">
-      <div class="modal-head">
-        <div>
-          <p class="eyebrow">New opportunity</p>
-          <h2>Add lead or order</h2>
-        </div>
-        <button class="icon-btn" value="cancel" type="submit" aria-label="Close">x</button>
-      </div>
-
+      <div class="modal-head"><div><p class="eyebrow">New opportunity</p><h2>Add lead or order</h2></div><button class="icon-btn" value="cancel" type="submit" aria-label="Close">x</button></div>
       <div class="form-grid">
-        <label>Section<select name="section" required>
-          <option value="catering">Catering</option>
-          <option value="frozen">Frozen Empanadas</option>
-          <option value="merch">Merch</option>
-        </select></label>
+        <label>Section<select name="section" required><option value="catering">Catering</option><option value="frozen">Frozen Empanadas</option><option value="merch">Merch</option></select></label>
         <label>Status<select name="status" required></select></label>
         <label>Customer name<input name="customer" required placeholder="Customer or company"></label>
         <label>Phone<input name="phone" placeholder="(984) 272-2728"></label>
         <label>Email<input name="email" type="email" placeholder="customer@email.com"></label>
-        <label>Source<select name="source">
-          <option>Website form</option>
-          <option>Email</option>
-          <option>Instagram</option>
-          <option>Phone call</option>
-          <option>StreetFoodFinder</option>
-          <option>Referral</option>
-        </select></label>
+        <label>Source<select name="source"><option>Website form</option><option>Email</option><option>Instagram</option><option>Phone call</option><option>StreetFoodFinder</option><option>Referral</option><option>API/Webhook</option></select></label>
+        <label>Preferred contact<select name="preferredContact"><option>Text</option><option>Call</option><option>Email</option><option>Instagram DM</option></select></label>
         <label>Value<input name="value" type="number" min="0" step="25" placeholder="Estimated $"></label>
         <label>Next action date<input name="nextAction" type="date"></label>
+        <label>Customer type<select name="customerType"><option>New lead</option><option>Repeat customer</option><option>Corporate buyer</option><option>Event planner</option><option>Wholesale / partner</option><option>Fan / merch buyer</option></select></label>
+        <label>Marketing consent<select name="marketingConsent"><option value="unknown">Unknown</option><option value="yes">Yes</option><option value="no">No</option></select></label>
+        <label class="wide">Tags<input name="tags" placeholder="wedding, corporate, birria, VIP, large order"></label>
         <label class="wide">Request details<textarea name="details" rows="4" placeholder="Event date, guest count, pickup details, merch sizes, notes..."></textarea></label>
       </div>
-
-      <menu class="modal-actions">
-        <button class="ghost-btn" value="cancel" type="submit">Cancel</button>
-        <button class="primary-btn" value="default" type="submit">Save Lead</button>
-      </menu>
+      <menu class="modal-actions"><button class="ghost-btn" value="cancel" type="submit">Cancel</button><button class="primary-btn" value="default" type="submit">Save Lead</button></menu>
     </form>
   </dialog>
 
+  <input id="importFile" type="file" accept="application/json" hidden>
   <aside class="detail-drawer" id="detailDrawer" aria-live="polite"></aside>
-
   <script src="app.js"></script>
 </body>
 </html>
