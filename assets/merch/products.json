@@ -1,0 +1,81 @@
+{
+  "products": [
+    {
+      "id": "black-logo-tee",
+      "printifyProductId": "69fd2ddc72bfa4db66030795",
+      "name": "Black Logo Tee",
+      "price": 28,
+      "image": "assets/merch/mockups/real-black-tee.png",
+      "sizes": [
+        { "label": "S", "variantId": 73196 },
+        { "label": "M", "variantId": 73200 },
+        { "label": "L", "variantId": 73204 },
+        { "label": "XL", "variantId": 73208 },
+        { "label": "2XL", "variantId": 73212 },
+        { "label": "3XL", "variantId": 79114 }
+      ]
+    },
+    {
+      "id": "classic-logo-tee",
+      "printifyProductId": "69fd2de514568b768c07c5d8",
+      "name": "Classic Logo Tee",
+      "price": 26,
+      "image": "assets/merch/mockups/real-cream-tee.png",
+      "sizes": [
+        { "label": "S", "variantId": 73199 },
+        { "label": "M", "variantId": 73203 },
+        { "label": "L", "variantId": 73207 },
+        { "label": "XL", "variantId": 73211 },
+        { "label": "2XL", "variantId": 73215 },
+        { "label": "3XL", "variantId": 79169 }
+      ]
+    },
+    {
+      "id": "pocket-check-hoodie",
+      "printifyProductId": "69fd2dec72bfa4db66030798",
+      "name": "Pocket Check Hoodie",
+      "price": 48,
+      "image": "assets/merch/mockups/real-black-hoodie.png",
+      "sizes": [
+        { "label": "S", "variantId": 32918 },
+        { "label": "M", "variantId": 32919 },
+        { "label": "L", "variantId": 32920 },
+        { "label": "XL", "variantId": 32921 },
+        { "label": "2XL", "variantId": 32922 },
+        { "label": "3XL", "variantId": 32923 }
+      ]
+    },
+    {
+      "id": "empanada-lab-apron",
+      "printifyProductId": "69fd2df2d48e08777704f145",
+      "name": "Empanada Lab Apron",
+      "price": 32,
+      "image": "assets/merch/mockups/real-black-apron.png",
+      "sizes": [{ "label": "One Size", "variantId": 74521 }]
+    },
+    {
+      "id": "empanada-run-tote",
+      "printifyProductId": "69fd2df763b7f727e70146f2",
+      "name": "Empanada Run Tote",
+      "price": 22,
+      "image": "assets/merch/mockups/real-canvas-tote.png",
+      "sizes": [{ "label": "One Size", "variantId": 73426 }]
+    },
+    {
+      "id": "nice-logo-snapback",
+      "printifyProductId": "69fd2dfccd220b844e0f7ecd",
+      "name": "Nice Logo Snapback",
+      "price": 25,
+      "image": "assets/merch/mockups/real-black-cap.png",
+      "sizes": [{ "label": "One Size", "variantId": 105362 }]
+    },
+    {
+      "id": "logo-sticker",
+      "printifyProductId": "69fd2e01f8e5108c54023724",
+      "name": "Mike Nice Logo Sticker",
+      "price": 5,
+      "image": "photos/mike-nice-logo-clean-transparent.png",
+      "sizes": [{ "label": "3×3", "variantId": 45750 }]
+    }
+  ]
+}

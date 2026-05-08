@@ -90,7 +90,68 @@
     .merch-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(200,16,46,0.15); }
     .merch-img { height: 280px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
 
+
+    .mockup-stage { position: relative; height: 100%; width: 100%; display:flex; align-items:center; justify-content:center; background-image: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.16), transparent 28%), url('assets/merch/empanada-pattern.svg'); background-size: cover; }
+    .product-tag { position:absolute; top:14px; left:14px; z-index:4; background:#F4A724; color:#1C0A00; font-family:'Oswald',sans-serif; font-weight:800; font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; padding:6px 12px; border-radius:999px; box-shadow:0 10px 24px rgba(0,0,0,.22); }
+    .shirt-shape, .hoodie-shape, .tote-shape, .apron-shape { position:relative; display:flex; align-items:center; justify-content:center; filter: drop-shadow(0 28px 36px rgba(0,0,0,.34)); }
+    .shirt-shape { width:190px; height:220px; background:var(--cloth,#111); clip-path: polygon(28% 7%, 42% 0, 58% 0, 72% 7%, 96% 24%, 82% 45%, 74% 39%, 74% 100%, 26% 100%, 26% 39%, 18% 45%, 4% 24%); border-radius:12px; }
+    .hoodie-shape { width:202px; height:230px; background:var(--cloth,#111); clip-path: polygon(33% 10%, 42% 0, 58% 0, 67% 10%, 84% 18%, 96% 50%, 83% 58%, 76% 43%, 76% 100%, 24% 100%, 24% 43%, 17% 58%, 4% 50%, 16% 18%); border-radius:16px; }
+    .hoodie-shape::before { content:''; position:absolute; top:10px; width:72px; height:46px; border:8px solid rgba(255,255,255,.12); border-bottom:none; border-radius:44px 44px 0 0; }
+    .tote-shape { width:176px; height:210px; background:var(--cloth,#FFF8E1); border-radius:8px 8px 18px 18px; border:5px solid rgba(28,10,0,.18); }
+    .tote-shape::before { content:''; position:absolute; top:-42px; width:96px; height:70px; border:10px solid var(--cloth,#FFF8E1); border-bottom:none; border-radius:60px 60px 0 0; filter: drop-shadow(0 -3px 0 rgba(28,10,0,.12)); }
+    .apron-shape { width:172px; height:230px; background:var(--cloth,#111); clip-path: polygon(31% 0, 69% 0, 80% 36%, 91% 100%, 9% 100%, 20% 36%); border-radius:12px; }
+    .apron-shape::before { content:''; position:absolute; top:-28px; width:74px; height:42px; border:7px solid #C8102E; border-bottom:none; border-radius:44px 44px 0 0; }
+    .hat-shape { position:relative; width:214px; height:126px; filter: drop-shadow(0 26px 32px rgba(0,0,0,.32)); }
+    .hat-crown { position:absolute; left:35px; top:10px; width:140px; height:84px; background:#111; border-radius:70px 70px 24px 24px; border:4px solid rgba(244,167,36,.28); }
+    .hat-bill { position:absolute; left:18px; top:76px; width:178px; height:42px; background:#0b0b0b; border-radius:50% 50% 35% 35%; border-bottom:8px solid #C8102E; }
+    .mock-logo { position:relative; z-index:3; max-width:68%; max-height:46%; object-fit:contain; filter: drop-shadow(0 7px 7px rgba(0,0,0,.4)); }
+    .mock-badge { position:relative; z-index:3; width:118px; height:118px; object-fit:contain; filter: drop-shadow(0 10px 10px rgba(0,0,0,.42)); }
+    .chest-print { position:absolute; z-index:3; top:80px; width:86px; height:auto; }
+    .back-copy { position:absolute; bottom:34px; z-index:3; font-family:'Oswald',sans-serif; font-size:.68rem; letter-spacing:.12em; color:#F4A724; text-align:center; text-transform:uppercase; }
+    .merch-note { border:1px solid rgba(244,167,36,.28); background:rgba(244,167,36,.10); color:rgba(255,248,225,.78); border-radius:14px; padding:14px 18px; font-size:.78rem; line-height:1.65; }
+    .price-row { display:flex; align-items:end; justify-content:space-between; gap:12px; margin-top:12px; }
+    .margin-note { font-family:'Inter',sans-serif; font-size:.66rem; color:rgba(28,10,0,.42); line-height:1.35; }
+
     .size-pill { display: inline-block; padding: 4px 12px; border-radius: 999px; font-family: 'Oswald', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid rgba(28,10,0,0.12); color: rgba(28,10,0,0.5); }
+
+
+    /* Clean merch mockup pass — product-first, no noisy backgrounds */
+    .merch-img { height: 320px; background:#f5ead0; }
+    .real-mockup-img { width:100%; height:100%; object-fit:cover; display:block; }
+    .mockup-stage { background: radial-gradient(circle at 50% 20%, rgba(255,255,255,.92), rgba(244,167,36,.16) 54%, rgba(28,10,0,.10)); background-size: cover; }
+    .mockup-stage::after { content:''; position:absolute; left:17%; right:17%; bottom:26px; height:24px; border-radius:50%; background:rgba(28,10,0,.16); filter:blur(10px); }
+    .product-tag { top:16px; left:16px; background:#C8102E; color:#FFF8E1; box-shadow:0 10px 22px rgba(200,16,46,.20); }
+    .shirt-shape { width:230px; height:265px; clip-path: polygon(27% 8%, 41% 0, 59% 0, 73% 8%, 96% 23%, 83% 44%, 75% 39%, 75% 100%, 25% 100%, 25% 39%, 17% 44%, 4% 23%); }
+    .hoodie-shape { width:232px; height:274px; clip-path: polygon(33% 9%, 42% 0, 58% 0, 67% 9%, 84% 17%, 97% 50%, 84% 58%, 76% 43%, 76% 100%, 24% 100%, 24% 43%, 16% 58%, 3% 50%, 16% 17%); }
+    .tote-shape { width:205px; height:244px; }
+    .apron-shape { width:205px; height:276px; }
+    .hat-shape { transform:scale(1.18); }
+    .mock-logo { max-width:54%; max-height:34%; filter: drop-shadow(0 5px 6px rgba(0,0,0,.22)); }
+    .mock-badge { width:104px; height:104px; filter: drop-shadow(0 6px 8px rgba(0,0,0,.26)); }
+    .shirt-shape .mock-badge { width:108px; height:108px; }
+    .tote-shape .mock-badge { width:120px !important; height:120px !important; }
+    .chest-print { top:104px; width:108px; background:rgba(255,248,225,.94); border-radius:8px; padding:4px; box-shadow:0 8px 16px rgba(0,0,0,.22); }
+    .back-copy { bottom:42px; color:#FFF8E1; background:#C8102E; padding:5px 10px; border-radius:999px; font-size:.58rem; letter-spacing:.1em; }
+    .hat-crown .mock-logo { background:#FFF8E1; border-radius:7px; padding:3px; max-width:88px !important; max-height:58px !important; }
+    .merch-card { box-shadow:0 14px 38px rgba(28,10,0,.08); }
+
+
+    .shop-control { margin-top: 14px; display:grid; grid-template-columns: 1fr auto; gap:10px; align-items:center; }
+    .shop-select { width:100%; border:1px solid rgba(28,10,0,.16); border-radius:10px; padding:11px 12px; font-family:'Inter',sans-serif; font-size:.85rem; color:#1C0A00; background:#FFF8E1; }
+    .add-cart-btn { border:0; border-radius:10px; background:#1C0A00; color:#FFF8E1; font-family:'Oswald',sans-serif; font-weight:800; text-transform:uppercase; letter-spacing:.1em; font-size:.72rem; padding:12px 14px; cursor:pointer; transition:transform .15s, background .2s; white-space:nowrap; }
+    .add-cart-btn:hover { transform:translateY(-1px); background:#C8102E; }
+    .cart-fab { position:fixed; right:18px; bottom:18px; z-index:80; border:0; border-radius:999px; background:#C8102E; color:#FFF8E1; box-shadow:0 18px 42px rgba(28,10,0,.24); padding:13px 18px; font-family:'Oswald',sans-serif; font-weight:900; text-transform:uppercase; letter-spacing:.1em; cursor:pointer; }
+    .cart-drawer { position:fixed; inset:0; z-index:120; pointer-events:none; }
+    .cart-drawer.open { pointer-events:auto; }
+    .cart-backdrop { position:absolute; inset:0; background:rgba(28,10,0,.48); opacity:0; transition:opacity .2s; }
+    .cart-drawer.open .cart-backdrop { opacity:1; }
+    .cart-panel { position:absolute; top:0; right:0; width:min(430px,100%); height:100%; background:#FFF8E1; box-shadow:-24px 0 60px rgba(0,0,0,.25); transform:translateX(105%); transition:transform .25s ease; padding:24px; display:flex; flex-direction:column; }
+    .cart-drawer.open .cart-panel { transform:translateX(0); }
+    .cart-line { display:grid; grid-template-columns:56px 1fr auto; gap:12px; padding:13px 0; border-bottom:1px solid rgba(28,10,0,.08); align-items:center; }
+    .cart-line img { width:56px; height:56px; object-fit:cover; border-radius:10px; background:#f5ead0; }
+    .cart-total { display:flex; justify-content:space-between; align-items:center; border-top:2px solid rgba(28,10,0,.12); padding-top:16px; margin-top:12px; }
+    .checkout-btn { width:100%; margin-top:14px; border:0; border-radius:12px; background:#C8102E; color:#FFF8E1; padding:15px; font-family:'Oswald',sans-serif; font-weight:900; letter-spacing:.12em; text-transform:uppercase; cursor:pointer; }
+    .checkout-note { margin-top:10px; font-size:.76rem; line-height:1.6; color:rgba(28,10,0,.55); }
 
     @media (prefers-reduced-motion: reduce) {
       .reveal { opacity: 1; transform: none; transition: none; }
@@ -170,7 +231,7 @@
 <!-- ═══════════════════════════════════════════
      HERO BANNER
 ═══════════════════════════════════════════ -->
-<section class="pt-24 pb-16 sm:pt-32 sm:pb-20 text-center" style="background: #1C0A00;">
+<section class="pt-24 pb-12 sm:pt-28 sm:pb-14 text-center" style="background: #1C0A00;">
   <div class="max-w-4xl mx-auto px-4 sm:px-6">
     <span class="ribbon mb-6">Official Gear</span>
     <h1 class="font-oswald font-bold text-4xl sm:text-5xl lg:text-6xl tracking-wide uppercase mt-4 mb-4" style="color: #FFF8E1; letter-spacing: 0.08em;">
@@ -178,7 +239,7 @@
     </h1>
     <p class="font-pacifico text-xl sm:text-2xl mb-4" style="color: #F4A724;">Rep the Thickness</p>
     <p class="font-inter text-sm sm:text-base max-w-xl mx-auto" style="color: rgba(255,248,225,0.55); line-height: 1.8;">
-      Rock the brand everywhere you go. Tees, hats, and more &mdash; because if you know, you know.
+      Official food-truck merch for Mike Nice fans — pick your size, add to bag, and rep the thickest empanadas in the Triangle.
     </p>
   </div>
 </section>
@@ -187,132 +248,113 @@
 <!-- ═══════════════════════════════════════════
      MERCH GRID
 ═══════════════════════════════════════════ -->
-<section class="py-14 sm:py-20">
+<section id="shop" class="py-10 sm:py-14">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
-    <div class="text-center mb-12 reveal">
+    <div class="text-center mb-10">
       <div class="flex items-center gap-4 justify-center mb-2">
         <div class="h-px w-12 sm:w-20" style="background: rgba(28,10,0,0.12);"></div>
-        <h2 class="font-oswald font-bold text-2xl sm:text-3xl tracking-widest uppercase" style="letter-spacing: 0.12em;">The Collection</h2>
+        <h2 class="font-oswald font-bold text-2xl sm:text-3xl tracking-widest uppercase" style="letter-spacing: 0.12em; color:#1C0A00;">Official Mike Nice Merch Shop</h2>
         <div class="h-px w-12 sm:w-20" style="background: rgba(28,10,0,0.12);"></div>
       </div>
+      <p class="font-inter text-sm max-w-2xl mx-auto" style="color: rgba(28,10,0,0.55); line-height: 1.8;">
+        Official Mike Nice Empanadas merch — tees, hoodies, aprons, totes, and hats built for fans, pop-ups, catering crews, and food-truck days.
+      </p>
     </div>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-      <!-- Tee 1 -->
-      <div class="merch-card reveal">
-        <div class="merch-img" style="background: #1C0A00;">
-          <div class="text-center">
-            <div class="text-6xl opacity-60">&#128085;</div>
-            <p class="font-oswald text-xs tracking-widest uppercase mt-3" style="color: rgba(255,248,225,0.4);">Classic Tee</p>
-          </div>
-        </div>
+      <article class="merch-card reveal" data-product-id="black-logo-tee">
+        <div class="merch-img"><img class="real-mockup-img" src="assets/merch/mockups/real-black-tee.png" alt="Realistic black Mike Nice Empanadas t-shirt mockup"></div>
         <div class="p-5">
-          <h3 class="font-oswald font-bold text-lg uppercase tracking-wide mb-1">"What's in Your Pocket?" Tee</h3>
-          <p class="font-inter text-xs mb-3" style="color: rgba(28,10,0,0.45);">Black tee with gold script. 100% cotton. Unisex fit.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="size-pill">S</span>
-            <span class="size-pill">M</span>
-            <span class="size-pill">L</span>
-            <span class="size-pill">XL</span>
-            <span class="size-pill">2XL</span>
+          <h3 class="font-oswald font-bold text-lg uppercase tracking-wide mb-1">Black Logo Tee</h3>
+          <p class="font-inter text-xs mb-3" style="color: rgba(28,10,0,0.48);">Black unisex tee with the Mike Nice logo front print. Clean, wearable first merch hero product.</p>
+          <div class="flex flex-wrap gap-1.5 mb-3"><span class="size-pill">S</span><span class="size-pill">M</span><span class="size-pill">L</span><span class="size-pill">XL</span><span class="size-pill">2XL</span><span class="size-pill">3XL</span></div>
+          
+          <div class="shop-control">
+            <select class="shop-select" aria-label="Choose size"></select>
+            <button type="button" class="add-cart-btn">Add to Bag</button>
           </div>
-          <span class="font-oswald font-bold text-2xl" style="color: #C8102E;">$30</span>
+          <div class="price-row"><span class="font-oswald font-bold text-2xl" style="color:#C8102E;">$28</span><span class="margin-note">Fair POD tee price</span></div>
         </div>
-      </div>
+      </article>
 
-      <!-- Tee 2 -->
-      <div class="merch-card reveal">
-        <div class="merch-img" style="background: linear-gradient(135deg, #C8102E 0%, #8a0b1f 100%);">
-          <div class="text-center">
-            <div class="text-6xl opacity-70">&#128085;</div>
-            <p class="font-oswald text-xs tracking-widest uppercase mt-3" style="color: rgba(255,255,255,0.5);">Logo Tee</p>
-          </div>
-        </div>
+      <article class="merch-card reveal" data-product-id="classic-logo-tee">
+        <div class="merch-img"><img class="real-mockup-img" src="assets/merch/mockups/real-cream-tee.png" alt="Realistic cream Mike Nice Empanadas tee mockup"></div>
         <div class="p-5">
-          <h3 class="font-oswald font-bold text-lg uppercase tracking-wide mb-1">Mike Nice Logo Tee</h3>
-          <p class="font-inter text-xs mb-3" style="color: rgba(28,10,0,0.45);">Red tee with full chest logo. Premium heavyweight cotton.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="size-pill">S</span>
-            <span class="size-pill">M</span>
-            <span class="size-pill">L</span>
-            <span class="size-pill">XL</span>
-            <span class="size-pill">2XL</span>
-            <span class="size-pill">3XL</span>
+          <h3 class="font-oswald font-bold text-lg uppercase tracking-wide mb-1">Classic Logo Tee</h3>
+          <p class="font-inter text-xs mb-3" style="color: rgba(28,10,0,0.48);">Cream tee with the full Mike Nice logo. Clean, simple, safest first seller.</p>
+          <div class="flex flex-wrap gap-1.5 mb-3"><span class="size-pill">S</span><span class="size-pill">M</span><span class="size-pill">L</span><span class="size-pill">XL</span><span class="size-pill">2XL</span><span class="size-pill">3XL</span></div>
+          
+          <div class="shop-control">
+            <select class="shop-select" aria-label="Choose size"></select>
+            <button type="button" class="add-cart-btn">Add to Bag</button>
           </div>
-          <span class="font-oswald font-bold text-2xl" style="color: #C8102E;">$30</span>
+          <div class="price-row"><span class="font-oswald font-bold text-2xl" style="color:#C8102E;">$26</span><span class="margin-note">Lower-cost entry item</span></div>
         </div>
-      </div>
+      </article>
 
-      <!-- Hat -->
-      <div class="merch-card reveal">
-        <div class="merch-img" style="background: linear-gradient(135deg, #1C0A00 0%, #3a1a08 100%);">
-          <div class="text-center">
-            <div class="text-6xl opacity-60">&#129506;</div>
-            <p class="font-oswald text-xs tracking-widest uppercase mt-3" style="color: rgba(255,248,225,0.4);">Snapback</p>
-          </div>
-        </div>
+      <article class="merch-card reveal" data-product-id="pocket-check-hoodie">
+        <div class="merch-img"><img class="real-mockup-img" src="assets/merch/mockups/real-black-hoodie.png" alt="Realistic black Mike Nice Empanadas hoodie mockup"></div>
         <div class="p-5">
-          <h3 class="font-oswald font-bold text-lg uppercase tracking-wide mb-1">Mike Nice Snapback</h3>
-          <p class="font-inter text-xs mb-3" style="color: rgba(28,10,0,0.45);">Black snapback with embroidered gold logo. One size fits most.</p>
-          <span class="font-oswald font-bold text-2xl" style="color: #C8102E;">$25</span>
+          <h3 class="font-oswald font-bold text-lg uppercase tracking-wide mb-1">Pocket Check Hoodie</h3>
+          <p class="font-inter text-xs mb-3" style="color: rgba(28,10,0,0.48);">Black hoodie with logo chest hit and catchphrase treatment. Higher-margin cold-weather piece.</p>
+          <div class="flex flex-wrap gap-1.5 mb-3"><span class="size-pill">S</span><span class="size-pill">M</span><span class="size-pill">L</span><span class="size-pill">XL</span><span class="size-pill">2XL</span></div>
+          
+          <div class="shop-control">
+            <select class="shop-select" aria-label="Choose size"></select>
+            <button type="button" class="add-cart-btn">Add to Bag</button>
+          </div>
+          <div class="price-row"><span class="font-oswald font-bold text-2xl" style="color:#C8102E;">$48</span><span class="margin-note">Standard POD hoodie range</span></div>
         </div>
-      </div>
+      </article>
 
-      <!-- Hoodie -->
-      <div class="merch-card reveal">
-        <div class="merch-img" style="background: #1C0A00;">
-          <div class="text-center">
-            <div class="text-6xl opacity-60">&#129509;</div>
-            <p class="font-oswald text-xs tracking-widest uppercase mt-3" style="color: rgba(255,248,225,0.4);">Hoodie</p>
-          </div>
-          <div class="absolute top-3 left-3"><span class="ribbon" style="font-size: 0.6rem; padding: 4px 16px;">Coming Soon</span></div>
-        </div>
+      <article class="merch-card reveal" data-product-id="empanada-lab-apron">
+        <div class="merch-img"><img class="real-mockup-img" src="assets/merch/mockups/real-black-apron.png" alt="Realistic Mike Nice Empanadas apron mockup"></div>
         <div class="p-5">
-          <h3 class="font-oswald font-bold text-lg uppercase tracking-wide mb-1">Mike Nice Pullover Hoodie</h3>
-          <p class="font-inter text-xs mb-3" style="color: rgba(28,10,0,0.45);">Black hoodie with back print. Fleece-lined. Kangaroo pocket.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="size-pill">S</span>
-            <span class="size-pill">M</span>
-            <span class="size-pill">L</span>
-            <span class="size-pill">XL</span>
-            <span class="size-pill">2XL</span>
+          <h3 class="font-oswald font-bold text-lg uppercase tracking-wide mb-1">Empanada Lab Apron</h3>
+          <p class="font-inter text-xs mb-3" style="color: rgba(28,10,0,0.48);">Black apron with logo front. Perfect for home cooks, staff, pop-ups, and catering photos.</p>
+          <div class="flex flex-wrap gap-1.5 mb-3"><span class="size-pill">One Size</span><span class="size-pill">Adjustable</span></div>
+          
+          <div class="shop-control">
+            <select class="shop-select" aria-label="Choose size"></select>
+            <button type="button" class="add-cart-btn">Add to Bag</button>
           </div>
-          <span class="font-oswald font-bold text-2xl" style="color: #C8102E;">$50</span>
+          <div class="price-row"><span class="font-oswald font-bold text-2xl" style="color:#C8102E;">$32</span><span class="margin-note">Brand-fit merch item</span></div>
         </div>
-      </div>
+      </article>
 
-      <!-- Apron -->
-      <div class="merch-card reveal">
-        <div class="merch-img" style="background: linear-gradient(135deg, #F4A724 0%, #e0901a 100%);">
-          <div class="text-center">
-            <div class="text-6xl opacity-70">&#129379;</div>
-            <p class="font-oswald text-xs tracking-widest uppercase mt-3" style="color: rgba(28,10,0,0.5);">Kitchen</p>
-          </div>
-        </div>
+      <article class="merch-card reveal" data-product-id="empanada-run-tote">
+        <div class="merch-img"><img class="real-mockup-img" src="assets/merch/mockups/real-canvas-tote.png" alt="Realistic Mike Nice Empanadas canvas tote mockup"></div>
         <div class="p-5">
-          <h3 class="font-oswald font-bold text-lg uppercase tracking-wide mb-1">Mike Nice Apron</h3>
-          <p class="font-inter text-xs mb-3" style="color: rgba(28,10,0,0.45);">Black canvas apron with embroidered logo. Adjustable neck strap.</p>
-          <span class="font-oswald font-bold text-2xl" style="color: #C8102E;">$28</span>
+          <h3 class="font-oswald font-bold text-lg uppercase tracking-wide mb-1">Empanada Run Tote</h3>
+          <p class="font-inter text-xs mb-3" style="color: rgba(28,10,0,0.48);">Cream tote for market runs, frozen empanada pickup, and festival days.</p>
+          <div class="flex flex-wrap gap-1.5 mb-3"><span class="size-pill">15×16</span><span class="size-pill">Natural</span></div>
+          
+          <div class="shop-control">
+            <select class="shop-select" aria-label="Choose size"></select>
+            <button type="button" class="add-cart-btn">Add to Bag</button>
+          </div>
+          <div class="price-row"><span class="font-oswald font-bold text-2xl" style="color:#C8102E;">$22</span><span class="margin-note">Easy add-on item</span></div>
         </div>
-      </div>
+      </article>
 
-      <!-- Sticker Pack -->
-      <div class="merch-card reveal">
-        <div class="merch-img" style="background: linear-gradient(135deg, #FFF8E1 0%, #f0e6c8 100%);">
-          <div class="text-center">
-            <div class="text-6xl">&#127991;</div>
-            <p class="font-oswald text-xs tracking-widest uppercase mt-3" style="color: rgba(28,10,0,0.4);">Sticker Pack</p>
-          </div>
-        </div>
+      <article class="merch-card reveal" data-product-id="nice-logo-snapback">
+        <div class="merch-img"><img class="real-mockup-img" src="assets/merch/mockups/real-black-cap.png" alt="Realistic black Mike Nice Empanadas snapback cap mockup"></div>
         <div class="p-5">
-          <h3 class="font-oswald font-bold text-lg uppercase tracking-wide mb-1">Sticker Pack (5 pcs)</h3>
-          <p class="font-inter text-xs mb-3" style="color: rgba(28,10,0,0.45);">Weatherproof vinyl stickers. Logo, empanada, catchphrase designs.</p>
-          <span class="font-oswald font-bold text-2xl" style="color: #C8102E;">$8</span>
+          <h3 class="font-oswald font-bold text-lg uppercase tracking-wide mb-1">Nice Logo Snapback</h3>
+          <p class="font-inter text-xs mb-3" style="color: rgba(28,10,0,0.48);">Black/gold logo hat. Simple truck-window merch and easy upsell at events.</p>
+          <div class="flex flex-wrap gap-1.5 mb-3"><span class="size-pill">One Size</span><span class="size-pill">Adjustable</span></div>
+          
+          <div class="shop-control">
+            <select class="shop-select" aria-label="Choose size"></select>
+            <button type="button" class="add-cart-btn">Add to Bag</button>
+          </div>
+          <div class="price-row"><span class="font-oswald font-bold text-2xl" style="color:#C8102E;">$25</span><span class="margin-note">Fair cap price</span></div>
         </div>
-      </div>
+      </article>
 
     </div>
+
   </div>
 </section>
 
@@ -322,16 +364,35 @@
 ═══════════════════════════════════════════ -->
 <section class="py-14 sm:py-20" style="background: #1C0A00;">
   <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center reveal">
-    <p class="font-pacifico text-xl sm:text-2xl mb-3" style="color: #F4A724;">Want to Grab Some Merch?</p>
-    <h2 class="font-oswald font-bold text-2xl sm:text-3xl tracking-widest uppercase mb-4" style="color: #FFF8E1; letter-spacing: 0.12em;">Hit Us Up to Order</h2>
-    <p class="font-inter text-sm mb-8" style="color: rgba(255,248,225,0.45);">Available at the truck or by order. DM us on Instagram or call to reserve your gear.</p>
+    <p class="font-pacifico text-xl sm:text-2xl mb-3" style="color: #F4A724;">Ready to Grab Some Merch?</p>
+    <h2 class="font-oswald font-bold text-2xl sm:text-3xl tracking-widest uppercase mb-4" style="color: #FFF8E1; letter-spacing: 0.12em;">Shop Online</h2>
+    <p class="font-inter text-sm mb-8" style="color: rgba(255,248,225,0.45);">Choose your item, add it to your bag, and checkout online once secure payments are connected. Orders are fulfilled through Printify.</p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="tel:9842722728" class="btn-red">Call (984) 272-2728</a>
-      <a href="https://www.instagram.com/mikeniceempanadas/" target="_blank" rel="noopener" class="btn-gold">DM on Instagram</a>
+      <a href="#shop" class="btn-red">Shop Merch</a>
+      <button type="button" class="btn-gold" data-open-cart>View Bag</button>
     </div>
   </div>
 </section>
 
+
+
+<button class="cart-fab" type="button" data-open-cart>Bag <span id="cart-count">0</span></button>
+<div class="cart-drawer" id="cart-drawer" aria-hidden="true">
+  <div class="cart-backdrop" data-close-cart></div>
+  <aside class="cart-panel" aria-label="Shopping bag">
+    <div class="flex items-start justify-between gap-4 mb-4">
+      <div>
+        <p class="font-pacifico text-xl" style="color:#C8102E;">Mike Nice</p>
+        <h2 class="font-oswald font-bold text-2xl uppercase tracking-widest">Your Bag</h2>
+      </div>
+      <button type="button" data-close-cart class="font-oswald font-bold uppercase" style="color:#1C0A00;">Close</button>
+    </div>
+    <div id="cart-lines" style="flex:1; overflow:auto;"></div>
+    <div class="cart-total"><span class="font-oswald font-bold uppercase tracking-widest">Total</span><span id="cart-total" class="font-oswald font-bold text-2xl" style="color:#C8102E;">$0</span></div>
+    <button type="button" id="checkout-btn" class="checkout-btn">Secure Checkout</button>
+    <p id="checkout-message" class="checkout-note">Secure website checkout is wired for Stripe + Printify fulfillment. Add Stripe keys in Vercel to turn this on live.</p>
+  </aside>
+</div>
 
 <!-- ═══════════════════════════════════════════
      FOOTER
@@ -439,6 +500,50 @@
     { "@type": "ListItem", "position": 2, "name": "Merch", "item": "https://mikeniceempanadas.com/merch.html" }
   ]
 }
+</script>
+
+
+<script>
+(() => {
+  const products = {
+    "black-logo-tee": { name:"Black Logo Tee", price:28, image:"assets/merch/mockups/real-black-tee.png", printifyProductId:"69fd2ddc72bfa4db66030795", sizes:[['S',73196],['M',73200],['L',73204],['XL',73208],['2XL',73212],['3XL',79114]] },
+    "classic-logo-tee": { name:"Classic Logo Tee", price:26, image:"assets/merch/mockups/real-cream-tee.png", printifyProductId:"69fd2de514568b768c07c5d8", sizes:[['S',73199],['M',73203],['L',73207],['XL',73211],['2XL',73215],['3XL',79169]] },
+    "pocket-check-hoodie": { name:"Pocket Check Hoodie", price:48, image:"assets/merch/mockups/real-black-hoodie.png", printifyProductId:"69fd2dec72bfa4db66030798", sizes:[['S',32918],['M',32919],['L',32920],['XL',32921],['2XL',32922],['3XL',32923]] },
+    "empanada-lab-apron": { name:"Empanada Lab Apron", price:32, image:"assets/merch/mockups/real-black-apron.png", printifyProductId:"69fd2df2d48e08777704f145", sizes:[['One Size',74521]] },
+    "empanada-run-tote": { name:"Empanada Run Tote", price:22, image:"assets/merch/mockups/real-canvas-tote.png", printifyProductId:"69fd2df763b7f727e70146f2", sizes:[['One Size',73426]] },
+    "nice-logo-snapback": { name:"Nice Logo Snapback", price:25, image:"assets/merch/mockups/real-black-cap.png", printifyProductId:"69fd2dfccd220b844e0f7ecd", sizes:[['One Size',105362]] }
+  };
+  let cart = JSON.parse(localStorage.getItem('mneMerchCart') || '[]');
+  const drawer=document.getElementById('cart-drawer'), lines=document.getElementById('cart-lines'), count=document.getElementById('cart-count'), total=document.getElementById('cart-total'), msg=document.getElementById('checkout-message');
+  const money=n=>'$'+n.toFixed(2).replace('.00','');
+  function save(){ localStorage.setItem('mneMerchCart', JSON.stringify(cart)); renderCart(); }
+  function openCart(){ drawer.classList.add('open'); drawer.setAttribute('aria-hidden','false'); }
+  function closeCart(){ drawer.classList.remove('open'); drawer.setAttribute('aria-hidden','true'); }
+  document.querySelectorAll('[data-open-cart]').forEach(b=>b.addEventListener('click',openCart));
+  document.querySelectorAll('[data-close-cart]').forEach(b=>b.addEventListener('click',closeCart));
+  document.querySelectorAll('[data-product-id]').forEach(card=>{
+    const p=products[card.dataset.productId], select=card.querySelector('.shop-select'), btn=card.querySelector('.add-cart-btn'); if(!p||!select||!btn) return;
+    select.innerHTML=p.sizes.map(([label,id])=>`<option value="${id}">${label}</option>`).join('');
+    btn.addEventListener('click',()=>{ const opt=select.selectedOptions[0]; const key=p.printifyProductId+'-'+opt.value; const existing=cart.find(i=>i.key===key); if(existing) existing.qty++; else cart.push({key,name:p.name,price:p.price,image:p.image,size:opt.textContent,printifyProductId:p.printifyProductId,variantId:Number(opt.value),qty:1}); save(); openCart(); });
+  });
+  function renderCart(){
+    const qty=cart.reduce((a,i)=>a+i.qty,0), sum=cart.reduce((a,i)=>a+i.qty*i.price,0); count.textContent=qty; total.textContent=money(sum);
+    lines.innerHTML = cart.length ? cart.map((i,idx)=>`<div class="cart-line"><img src="${i.image}" alt=""><div><div class="font-oswald font-bold uppercase">${i.name}</div><div style="font-size:.78rem;color:rgba(28,10,0,.55);">${i.size} · Qty ${i.qty}</div><button data-remove="${idx}" style="margin-top:4px;border:0;background:transparent;color:#C8102E;font-size:.75rem;cursor:pointer;">Remove</button></div><div class="font-oswald font-bold">${money(i.price*i.qty)}</div></div>`).join('') : '<p style="color:rgba(28,10,0,.55);line-height:1.7;">Your bag is empty. Add a tee, hoodie, apron, tote, or cap to get started.</p>';
+    lines.querySelectorAll('[data-remove]').forEach(b=>b.addEventListener('click',()=>{ cart.splice(Number(b.dataset.remove),1); save(); }));
+  }
+  document.getElementById('checkout-btn')?.addEventListener('click', async () => {
+    if(!cart.length){ msg.textContent='Add something to your bag first.'; return; }
+    msg.textContent='Starting secure checkout…';
+    try {
+      const res = await fetch('/api/create-checkout-session', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({items:cart}) });
+      const data = await res.json();
+      if(data.url) location.href = data.url;
+      else if(data.message) msg.textContent = data.message;
+      else msg.textContent='Checkout is almost ready — Stripe publishable/secret keys need to be added on the live host.';
+    } catch(e) { msg.textContent='Checkout is wired, but the local static server does not run API routes. Deploy with Stripe + Printify env keys to activate website checkout.'; }
+  });
+  renderCart();
+})();
 </script>
 
 </body>
