@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Mike Nice Dashboard — Form Submissions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    :root { --red:#C8102E; --gold:#F4A724; --dark:#1C0A00; --cream:#FFF8E1; --muted:rgba(28,10,0,.56); }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter,system-ui,sans-serif; background:var(--cream); color:var(--dark); }
+    header { background:var(--dark); color:var(--cream); padding:28px 22px; }
+    .wrap { width:min(1180px, calc(100% - 32px)); margin:0 auto; }
+    .brand { font-family:Pacifico,cursive; color:var(--cream); font-size:1.4rem; }
+    h1,h2,h3 { font-family:Oswald,sans-serif; text-transform:uppercase; letter-spacing:.08em; margin:0; }
+    .top { display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .top p { color:rgba(255,248,225,.58); margin:.5rem 0 0; line-height:1.6; }
+    button, select, input { font:inherit; }
+    .btn { border:0; border-radius:12px; background:var(--red); color:white; font-family:Oswald,sans-serif; font-weight:800; letter-spacing:.1em; text-transform:uppercase; padding:12px 16px; cursor:pointer; }
+    .btn.dark { background:var(--dark); }
+    .btn.gold { background:var(--gold); color:var(--dark); }
+    .btn.ghost { background:transparent; color:var(--dark); border:1px solid rgba(28,10,0,.18); }
+    main { padding:26px 0 50px; }
+    .panel { background:white; border:1px solid rgba(28,10,0,.08); border-radius:18px; box-shadow:0 18px 44px rgba(28,10,0,.08); padding:22px; }
+    .login { max-width:520px; margin:38px auto; }
+    label { display:block; font-size:.78rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+    input, select { width:100%; border:1px solid rgba(28,10,0,.16); border-radius:12px; padding:12px; background:#fffaf0; color:var(--dark); }
+    .toolbar { display:flex; align-items:end; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:18px; }
+    .stats { display:grid; grid-template-columns:repeat(4,minmax(120px,1fr)); gap:12px; margin-bottom:18px; }
+    .stat { background:white; border:1px solid rgba(28,10,0,.08); border-radius:16px; padding:16px; }
+    .stat strong { display:block; font-family:Oswald,sans-serif; font-size:1.8rem; color:var(--red); }
+    .table { display:grid; gap:12px; }
+    .row { background:white; border:1px solid rgba(28,10,0,.08); border-radius:16px; padding:16px; display:grid; grid-template-columns:1.1fr 1fr 1.4fr .75fr; gap:14px; align-items:start; }
+    .row small { display:block; color:var(--muted); margin-top:5px; line-height:1.45; }
+    .pill { display:inline-flex; align-items:center; border-radius:999px; padding:5px 10px; font-size:.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.07em; background:rgba(244,167,36,.2); color:var(--dark); }
+    .pill.new { background:rgba(200,16,46,.12); color:var(--red); }
+    .pill.completed { background:rgba(30,128,70,.12); color:#1e8046; }
+    .hidden { display:none !important; }
+    .message { margin-top:12px; color:var(--muted); line-height:1.6; }
+    .error { color:var(--red); }
+    @media (max-width:850px){ .top,.toolbar{align-items:flex-start; flex-direction:column;} .stats{grid-template-columns:repeat(2,1fr);} .row{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap top">
+      <div>
+        <div class="brand">Mike Nice</div>
+        <h1>Submissions Dashboard</h1>
+        <p>Tenant-isolated view for Mike Nice Empanadas only.</p>
+      </div>
+      <button class="btn gold hidden" id="sign-out">Sign Out</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="panel login" id="login-panel">
+      <h2>Sign in</h2>
+      <p class="message">Use the email that S4 AI Agency added to Mike Nice Empanadas dashboard access.</p>
+      <form id="login-form" style="margin-top:18px;">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required placeholder="you@example.com">
+        <button class="btn" style="width:100%;margin-top:14px;" type="submit">Send Magic Link</button>
+      </form>
+      <p class="message" id="login-message"></p>
+    </section>
+
+    <section id="dashboard" class="hidden">
+      <div class="toolbar">
+        <div>
+          <h2>Mike Nice Empanadas Leads</h2>
+          <p class="message">Showing only rows tagged to <strong>mike-nice-empanadas</strong>.</p>
+        </div>
+        <div style="display:flex;gap:10px;align-items:end;">
+          <div><label for="status-filter">Filter</label><select id="status-filter"><option value="">All</option><option value="new">New</option><option value="contacted">Contacted</option><option value="completed">Completed</option><option value="archived">Archived</option></select></div>
+          <button class="btn dark" id="refresh" type="button">Refresh</button>
+        </div>
+      </div>
+      <div class="stats" id="stats"></div>
+      <div class="table" id="rows"></div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const CLIENT_SLUG = 'mike-nice-empanadas';
+    let supabaseClient, clientId, submissions = [];
+
+    const loginPanel = document.getElementById('login-panel');
+    const dashboard = document.getElementById('dashboard');
+    const loginMessage = document.getElementById('login-message');
+    const rowsEl = document.getElementById('rows');
+    const statsEl = document.getElementById('stats');
+    const signOutBtn = document.getElementById('sign-out');
+
+    function escapeHtml(value) {
+      return String(value || '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+    }
+
+    function fmtDate(value) {
+      if (!value) return 'No date';
+      return new Date(value).toLocaleString([], { month:'short', day:'numeric', year:'numeric', hour:'numeric', minute:'2-digit' });
+    }
+
+    async function init() {
+      const cfg = await fetch('/api/supabase-config').then(r => r.json()).catch(() => ({}));
+      if (!cfg.configured) {
+        loginMessage.innerHTML = '<span class="error">Supabase env vars are not configured on this host yet.</span>';
+        return;
+      }
+      supabaseClient = supabase.createClient(cfg.supabaseUrl, cfg.supabaseAnonKey);
+      const { data: { session } } = await supabaseClient.auth.getSession();
+      if (session) await loadDashboard();
+    }
+
+    document.getElementById('login-form').addEventListener('submit', async event => {
+      event.preventDefault();
+      loginMessage.textContent = 'Sending magic link...';
+      const email = event.currentTarget.email.value.trim();
+      const { error } = await supabaseClient.auth.signInWithOtp({
+        email,
+        options: { emailRedirectTo: location.href.split('#')[0] }
+      });
+      loginMessage.textContent = error ? error.message : 'Check your email for the sign-in link.';
+      loginMessage.classList.toggle('error', Boolean(error));
+    });
+
+    signOutBtn.addEventListener('click', async () => { await supabaseClient.auth.signOut(); location.reload(); });
+    document.getElementById('refresh').addEventListener('click', loadSubmissions);
+    document.getElementById('status-filter').addEventListener('change', render);
+
+    async function loadDashboard() {
+      loginPanel.classList.add('hidden');
+      dashboard.classList.remove('hidden');
+      signOutBtn.classList.remove('hidden');
+
+      const { data: client, error } = await supabaseClient.from('clients').select('id,name,slug').eq('slug', CLIENT_SLUG).single();
+      if (error) {
+        rowsEl.innerHTML = `<div class="panel error">Access denied or client not found. Make sure this email exists in dashboard_users for Mike Nice Empanadas.</div>`;
+        return;
+      }
+      clientId = client.id;
+      await loadSubmissions();
+    }
+
+    async function loadSubmissions() {
+      rowsEl.innerHTML = '<div class="panel">Loading submissions...</div>';
+      const { data, error } = await supabaseClient
+        .from('client_form_submissions')
+        .select('*')
+        .eq('client_id', clientId)
+        .order('created_at', { ascending: false });
+      if (error) {
+        rowsEl.innerHTML = `<div class="panel error">${escapeHtml(error.message)}</div>`;
+        return;
+      }
+      submissions = data || [];
+      render();
+    }
+
+    function render() {
+      const filter = document.getElementById('status-filter').value;
+      const visible = filter ? submissions.filter(row => row.status === filter) : submissions;
+      const counts = ['new','contacted','completed','archived'].map(status => [status, submissions.filter(row => row.status === status).length]);
+      statsEl.innerHTML = counts.map(([status,count]) => `<div class="stat"><span class="pill ${status}">${status}</span><strong>${count}</strong></div>`).join('');
+      rowsEl.innerHTML = visible.length ? visible.map(rowHtml).join('') : '<div class="panel">No submissions match this filter.</div>';
+      rowsEl.querySelectorAll('select[data-id]').forEach(select => select.addEventListener('change', updateStatus));
+    }
+
+    function rowHtml(row) {
+      return `<article class="row">
+        <div><strong>${escapeHtml(row.customer_name)}</strong><small>${escapeHtml(row.customer_email || 'No email')}<br>${escapeHtml(row.customer_phone || 'No phone')}</small></div>
+        <div><span class="pill ${escapeHtml(row.status)}">${escapeHtml(row.status)}</span><small>${escapeHtml(row.form_type)}<br>${fmtDate(row.created_at)}</small></div>
+        <div><strong>${escapeHtml(row.order_interest || 'Request')}</strong><small>${escapeHtml(row.message || 'No message')}</small>${row.event_date ? `<small>Event date: ${escapeHtml(row.event_date)}</small>` : ''}</div>
+        <div><label>Status</label><select data-id="${row.id}"><option value="new" ${row.status==='new'?'selected':''}>New</option><option value="contacted" ${row.status==='contacted'?'selected':''}>Contacted</option><option value="completed" ${row.status==='completed'?'selected':''}>Completed</option><option value="archived" ${row.status==='archived'?'selected':''}>Archived</option></select></div>
+      </article>`;
+    }
+
+    async function updateStatus(event) {
+      const id = event.target.dataset.id;
+      const status = event.target.value;
+      const { error } = await supabaseClient.from('client_form_submissions').update({ status }).eq('id', id).eq('client_id', clientId);
+      if (error) { alert(error.message); await loadSubmissions(); return; }
+      const row = submissions.find(item => item.id === id);
+      if (row) row.status = status;
+      render();
+    }
+
+    init();
+  </script>
+</body>
+</html>

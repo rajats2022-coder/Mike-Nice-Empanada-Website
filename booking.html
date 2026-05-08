@@ -536,6 +536,8 @@
             <label class="f-label" for="fmsg">Tell Us About Your Event</label>
             <textarea id="fmsg" name="message" rows="4" class="f-input" style="resize: none;" placeholder="Package interest, dietary restrictions, event location, budget..."></textarea>
           </div>
+          <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;" aria-hidden="true">
+          <p id="form-error" class="hidden font-inter text-sm text-center" style="color:#C8102E; line-height:1.6;"></p>
           <button type="submit" class="btn-red w-full text-center" style="padding: 16px; font-size: 1rem;">Send Catering Request</button>
           <p class="font-inter text-xs text-center" style="color: rgba(28,10,0,0.4);">We'll respond within 24 hours. Urgent? Call <a href="tel:9842722728" style="color: #C8102E;">(984) 272-2728</a></p>
         </form>
@@ -665,11 +667,58 @@
   revealEls.forEach(el => io.observe(el));
 
   // ── Form submit ──
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    saveCateringLeadToCrm(e.currentTarget);
-    document.getElementById('catering-form').classList.add('hidden');
-    document.getElementById('form-success').classList.remove('hidden');
+    const form = e.currentTarget;
+    const errorEl = document.getElementById('form-error');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    errorEl?.classList.add('hidden');
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const data = Object.fromEntries(new FormData(form));
+    const payload = {
+      client_slug: 'mike-nice-empanadas',
+      client_name: 'Mike Nice Empanadas',
+      form_type: 'catering',
+      customer_name: data.name || '',
+      customer_email: data.email || '',
+      customer_phone: data.phone || '',
+      message: data.message || '',
+      order_interest: [`Event type: ${data.event_type || 'Not selected'}`, `Guests: ${data.guests || 'Not provided'}`].join(' | '),
+      event_type: data.event_type || '',
+      event_date: data.event_date || '',
+      guests: data.guests || '',
+      website: data.website || ''
+    };
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    try {
+      const response = await fetch('/api/submit-form', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || result.error) throw new Error(result.error || 'Submission failed');
+
+      saveCateringLeadToCrm(form);
+      form.classList.add('hidden');
+      document.getElementById('form-success').classList.remove('hidden');
+    } catch (error) {
+      console.error('Form submit failed', error);
+      if (errorEl) {
+        errorEl.textContent = error.message || 'We could not send this request right now. Please call (984) 272-2728 or try again shortly.';
+        errorEl.classList.remove('hidden');
+      }
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Catering Request';
+    }
   }
 
   function saveCateringLeadToCrm(form) {

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex,nofollow">
+  <title>S4 Admin — Client Forms</title>
+  <style>body{font-family:system-ui,sans-serif;background:#f7f3ea;color:#1C0A00;margin:0}.wrap{width:min(1100px,calc(100% - 32px));margin:0 auto;padding:28px 0}header{background:#1C0A00;color:#FFF8E1}.panel,.row{background:white;border:1px solid #eadfcd;border-radius:14px;padding:16px;margin:12px 0}.row{display:grid;grid-template-columns:1fr 1fr 1.5fr auto;gap:12px}button,select,input{font:inherit;padding:10px;border-radius:10px;border:1px solid #d8c9ad}button{background:#C8102E;color:white;border:0;font-weight:800}.muted{color:#7b6e5c}.hidden{display:none}@media(max-width:800px){.row{grid-template-columns:1fr}}</style>
+</head>
+<body>
+<header><div class="wrap"><h1>S4 Admin — Client Forms</h1><p>Admin-only filtered view. Requires a dashboard_users row with role <strong>s4_admin</strong>.</p></div></header>
+<main class="wrap"><section id="login" class="panel"><h2>Sign in</h2><form id="login-form"><input type="email" name="email" placeholder="admin@example.com" required><button>Send magic link</button></form><p id="msg" class="muted"></p></section><section id="app" class="hidden"><div class="panel"><label>Client filter</label><select id="client-filter"></select> <button id="refresh">Refresh</button> <button id="sign-out">Sign out</button></div><div id="rows"></div></section></main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+let sb, clients=[]; const esc=v=>String(v||'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+async function init(){const cfg=await fetch('/api/supabase-config').then(r=>r.json()).catch(()=>({})); if(!cfg.configured){msg.textContent='Supabase env vars not configured.';return} sb=supabase.createClient(cfg.supabaseUrl,cfg.supabaseAnonKey); const {data:{session}}=await sb.auth.getSession(); if(session) load();}
+login-form.addEventListener('submit',async e=>{e.preventDefault(); msg.textContent='Sending...'; const {error}=await sb.auth.signInWithOtp({email:e.target.email.value,options:{emailRedirectTo:location.href.split('#')[0]}}); msg.textContent=error?error.message:'Check your email.'});
+document.getElementById('sign-out').onclick=async()=>{await sb.auth.signOut();location.reload()}; refresh.onclick=loadRows; document.getElementById('client-filter').onchange=loadRows;
+async function load(){login.classList.add('hidden'); app.classList.remove('hidden'); const {data,error}=await sb.from('clients').select('id,name,slug').order('name'); if(error){rows.innerHTML='<div class="panel">Access denied: '+esc(error.message)+'</div>';return} clients=data||[]; client-filter.innerHTML='<option value="">All clients</option>'+clients.map(c=>`<option value="${c.id}">${esc(c.name)} (${esc(c.slug)})</option>`).join(''); loadRows();}
+async function loadRows(){rows.innerHTML='<div class="panel">Loading...</div>'; let q=sb.from('client_form_submissions').select('*, clients(name,slug)').order('created_at',{ascending:false}); if(client-filter.value) q=q.eq('client_id',client-filter.value); const {data,error}=await q; if(error){rows.innerHTML='<div class="panel">'+esc(error.message)+'</div>';return} rows.innerHTML=(data||[]).map(r=>`<div class="row"><div><strong>${esc(r.customer_name)}</strong><p class="muted">${esc(r.customer_email)}<br>${esc(r.customer_phone)}</p></div><div>${esc(r.clients?.name||'Client')}<p class="muted">${esc(r.form_type)} · ${esc(r.status)}</p></div><div>${esc(r.order_interest)}<p class="muted">${esc(r.message)}</p></div><div>${new Date(r.created_at).toLocaleString()}</div></div>`).join('')||'<div class="panel">No rows.</div>';}
+init();
+</script>
+</body>
+</html>
